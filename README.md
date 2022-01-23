@@ -10,7 +10,8 @@
 
 1. Typescript configuration
 2. Hot reload using `nodemon`
+3. `ts-node` should be installed globally
 
 ---
 
-©️ Copyright [@usama251993](https://github.com/usama251993)
+©️ [@usama251993](https://github.com/usama251993)
