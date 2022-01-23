@@ -32,3 +32,29 @@
 function multTwo(a: number, b: number): number {
     return a * b;
 }
+
+/**
+ * ### Best Solution
+ *
+ * ```ts
+ * function multTwo(a: number, b: number): number {
+ *    return a * b;
+ * }
+ * ```
+ *
+ * ### Creative Solution
+ *
+ * ```ts
+ * const multTwo = (a, b) => [
+ *   ...'🐱'
+ *   .repeat(a)
+ *   .replace(/./ug,
+ *     '🦄'
+ *     .repeat(b)
+ *   )
+ * ].length
+ * ```
+ */
+function solutions() {
+    console.log('Refer Documentation of this function');
+}
