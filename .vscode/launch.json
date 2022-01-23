@@ -5,7 +5,7 @@
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "name": "nodemon",
-      "program": "${workspaceFolder}/puzzles/${fileBasename}",
+      "program": "${file}",
       "request": "launch",
       "restart": true,
       "runtimeExecutable": "nodemon",

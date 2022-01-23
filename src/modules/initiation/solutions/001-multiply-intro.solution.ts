@@ -1,6 +1,7 @@
-import { multTwo } from '../puzzles/001-multiply-intro.puzzle';
+import { multTwo } from '../puzzles';
 
 export const solution = {
+  name: 'Multiply Intro',
   my: multTwo,
   best: (a: number, b: number): number => a * b,
   creative: (a: number, b: number): number => [
