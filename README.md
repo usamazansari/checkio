@@ -21,7 +21,14 @@
 
 The problem function should have documentation as per the description at `checkio.org`
 
+
+The 3 types of files to be interacted are:
+1. Puzzles
+2. Solutions
+3. Tests
+
 ```ts
+// {{ number }}-{{ description }}.puzzle.ts
 /**
  * # Name of the problem
  *
@@ -69,19 +76,22 @@ function problem(...params: Parameters): Type<Return> {}
 
 > Remember to remove all the trailing whitespaces until `eslint` is added
 
-The best solution and the creative solution are added after the problem statement is passed.
+The best solution and the creative solution are added in respective solution files.
 No documentation required for best and creative solutions.
 
 ```ts
+// {{ number }}-{{ description }}.solution.ts
 const solutions = {
   best: (...params) => {} /* the best solution */,
   creative: (...params) => {} /* the creative solution */
 }
+```
 
-const params = /* any */;
+Tests are written in separate file for each problem
 
-console.log(solutions.best(params));
-console.log(solutions.creative(params));
+```ts
+// {{ number }}-{{ description }}.test.ts
+// TBD after installation of `jest`
 ```
 
 ---
