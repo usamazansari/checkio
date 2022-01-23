@@ -1,0 +1,10 @@
+# Output Files
+dist
+out
+
+# Vendor Dependencies
+node_modules/*
+
+# IDE Configuration Files
+!.vscode/launch.json
+!.vscode/tasks.json
