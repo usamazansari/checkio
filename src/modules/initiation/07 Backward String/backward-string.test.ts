@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my } from './backward-string.puzzle';
 
 const Tests = [
@@ -8,36 +7,28 @@ const Tests = [
   { value: '123456789', expected: '987654321' }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('Backward String using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(my(test.value)).toBe(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.value);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Value    : ${test.value}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  // describe('Best solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.value}`, () => {
+  //       expect(best(test.value)).toBe(test.expected);
+  //     });
+  //   });
+  // });
+
+  // describe('Creative solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.value}`, () => {
+  //       expect(creative(test.value)).toBe(test.expected);
+  //     });
+  //   });
+  // });
 });
-
-LOG.default(` ---- Best ---- `);
-
-// Tests.forEach(test => {
-//   const actual = best(test.value);
-//   const response = EQUALITY.shallow(actual, test.expected);
-//   LOG.default(`  Value    : ${test.value}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
-
-LOG.default(` ---- Creative ---- `);
-
-// Tests.forEach(test => {
-//   const actual = creative(test.value);
-//   const response = EQUALITY.shallow(actual, test.expected);
-//   LOG.default(`  Value    : ${test.value}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });

@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my, best, creative } from './number-length.puzzle';
 
 const Tests = [
@@ -10,36 +9,28 @@ const Tests = [
   { value: -123456789012390, expected: 15 }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('Number Length using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(my(test.value)).toBe(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.value);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Value    : ${test.value}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(best(test.value)).toBe(test.expected);
+      });
+    });
+  });
 
-LOG.default(` ---- Best ---- `);
-
-Tests.forEach(test => {
-  const actual = best(test.value);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Value    : ${test.value}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
-
-LOG.default(` ---- Creative ---- `);
-
-Tests.forEach(test => {
-  const actual = creative(test.value);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Value    : ${test.value}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(creative(test.value)).toBe(test.expected);
+      });
+    });
+  });
 });

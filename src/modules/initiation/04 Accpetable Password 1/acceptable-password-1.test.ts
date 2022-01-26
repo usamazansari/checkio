@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my, best, creative } from './acceptable-password-1.puzzle';
 
 const Tests = [
@@ -7,33 +6,28 @@ const Tests = [
   { password: 'ashort', expected: false }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('Acceptable Password I using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.password}`, () => {
+        expect(my(test.password)).toBe(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.password);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.password}`, () => {
+        expect(best(test.password)).toBe(test.expected);
+      });
+    });
+  });
 
-LOG.default(` ---- Best ---- `);
-
-Tests.forEach(test => {
-  const actual = best(test.password);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
-
-LOG.default(` ---- Creative ---- `);
-
-Tests.forEach(test => {
-  const actual = creative(test.password);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.password}`, () => {
+        expect(creative(test.password)).toBe(test.expected);
+      });
+    });
+  });
 });

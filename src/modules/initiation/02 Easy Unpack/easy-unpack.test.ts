@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my, best, creative } from './easy-unpack.puzzle';
 
 const Tests = [
@@ -7,33 +6,28 @@ const Tests = [
   { values: [6, 3, 7], expected: [6, 7, 3] }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('Easy Unpack using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values}`, () => {
+        expect(my(test.values)).toEqual(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.values);
-  const response = EQUALITY.deep(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values}`, () => {
+        expect(best(test.values)).toEqual(test.expected);
+      });
+    });
+  });
 
-LOG.default(` ---- Best ---- `);
-
-Tests.forEach(test => {
-  const actual = best(test.values);
-  const response = EQUALITY.deep(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
-});
-
-LOG.default(` ---- Creative ---- `);
-
-Tests.forEach(test => {
-  const actual = creative(test.values);
-  const response = EQUALITY.deep(actual, test.expected);
-  LOG.default(`  Expected: ${test.expected}`);
-  LOG.default(`  Actual: ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values}`, () => {
+        expect(creative(test.values)).toEqual(test.expected);
+      });
+    });
+  });
 });

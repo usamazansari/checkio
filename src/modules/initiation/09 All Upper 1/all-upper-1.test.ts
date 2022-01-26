@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my } from './all-upper-1.puzzle';
 
 const Tests = [
@@ -8,36 +7,28 @@ const Tests = [
   { text: '', expected: true }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('All Upper I using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.text}`, () => {
+        expect(my(test.text)).toBe(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.text);
-  const response = EQUALITY.shallow(actual, test.expected);
-  LOG.default(`  Value    : ${test.text}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  // describe('Best solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.text}`, () => {
+  //       expect(best(test.text)).toBe(test.expected);
+  //     });
+  //   });
+  // });
+
+  // describe('Creative solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.text}`, () => {
+  //       expect(creative(test.text)).toBe(test.expected);
+  //     });
+  //   });
+  // });
 });
-
-LOG.default(` ---- Best ---- `);
-
-// Tests.forEach(test => {
-//   const actual = best(test.text);
-//   const response = EQUALITY.shallow(actual)
-//   LOG.default(`  Value    : ${test.text}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
-
-LOG.default(` ---- Creative ---- `);
-
-// Tests.forEach(test => {
-//   const actual = creative(test.text);
-//   const response = EQUALITY.shallow(actual)
-//   LOG.default(`  Value    : ${test.text}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });

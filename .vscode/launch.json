@@ -2,13 +2,33 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "name": "nodemon",
-      "program": "${workspaceFolder}/test.ts",
+      "name": "Jest Current File",
       "request": "launch",
-      "restart": true,
-      "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        "run-script",
+        "test",
+        "--",
+        "--testPathPattern=${fileBasenameNoExtension}",
+        "--config=${workspaceFolder}/jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
+      "name": "Jest All Files",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "test",
+        "--",
+        "--config=${workspaceFolder}/jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "runtimeExecutable": "npm",
       "skipFiles": [
         "<node_internals>/**"
       ],

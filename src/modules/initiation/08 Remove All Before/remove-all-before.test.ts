@@ -1,4 +1,3 @@
-import { EQUALITY, LOG } from '../../common';
 import { my } from './remove-all-before.puzzle';
 
 const Tests = [
@@ -10,39 +9,28 @@ const Tests = [
   { values: [7, 7, 7, 7, 7, 7, 7, 7, 7], b: 7, expected: [7, 7, 7, 7, 7, 7, 7, 7, 7] }
 ];
 
-LOG.default(`Running Tests...`);
-LOG.default(` ---- My ---- `);
+describe('Remove All Before using', () => {
+  describe('My Solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+        expect(my(test.values, test.b)).toEqual(test.expected);
+      });
+    });
+  });
 
-Tests.forEach(test => {
-  const actual = my(test.values, test.b);
-  const response = EQUALITY.deep(actual, test.expected);
-  LOG.default(`  Value    : ${test.values}`);
-  LOG.default(`  Boundary : ${test.b}`);
-  LOG.default(`  Expected : ${test.expected}`);
-  LOG.default(`  Actual   : ${actual}`);
-  response ? LOG.pass() : LOG.fail();
+  // describe('Best solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+  //       expect(best(test.values, test.b)).toEqual(test.expected);
+  //     });
+  //   });
+  // });
+
+  // describe('Creative solution', () => {
+  //   Tests.forEach(test => {
+  //     it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+  //       expect(creative(test.values, test.b)).toEqual(test.expected);
+  //     });
+  //   });
+  // });
 });
-
-LOG.default(` ---- Best ---- `);
-
-// Tests.forEach(test => {
-//   const actual = best(test.values, test.b);
-//   const response = EQUALITY.deep(actual, test.expected);
-//   LOG.default(`  Value    : ${test.values}`);
-//   LOG.default(`  Boundary : ${test.b}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
-
-LOG.default(` ---- Creative ---- `);
-
-// Tests.forEach(test => {
-//   const actual = creative(test.values, test.b);
-//   const response = EQUALITY.deep(actual, test.expected);
-//   LOG.default(`  Value    : ${test.values}`);
-//   LOG.default(`  Boundary : ${test.b}`);
-//   LOG.default(`  Expected : ${test.expected}`);
-//   LOG.default(`  Actual   : ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
