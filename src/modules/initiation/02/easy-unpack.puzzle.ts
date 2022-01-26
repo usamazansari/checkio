@@ -40,4 +40,8 @@ function easyUnpack(values: any[]): any[] {
   ];
 }
 
-export { easyUnpack };
+const best = (values: any[]): any[] => [values[0], values[2], values[values.length - 2]];
+
+const creative = (e: any[], [f, , t] = e) => [f, t, e.reverse()[1]];
+
+export { easyUnpack as my, best, creative };

@@ -1,5 +1,5 @@
-import { LOG } from '../../common';
-import { MultiplyIntroSolution as solution } from '../solutions';
+import { EQUALITY, LOG } from '../../common';
+import { my, best, creative } from './multiply-intro.puzzle';
 
 const Tests = [
   { a: 2, b: 3, expected: 6 },
@@ -8,12 +8,12 @@ const Tests = [
 ];
 
 
-LOG.default(`Running ${solution.name} tests...`);
+LOG.default(`Running Tests...`);
 LOG.default(` ---- My ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.my(test.a, test.b);
-  const response = actual === test.expected;
+  const actual = my(test.a, test.b);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -22,8 +22,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Best ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.best(test.a, test.b);
-  const response = actual === test.expected;
+  const actual = best(test.a, test.b);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -32,8 +32,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Creative ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.creative(test.a, test.b);
-  const response = actual === test.expected;
+  const actual = creative(test.a, test.b);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();

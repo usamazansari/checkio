@@ -1,5 +1,5 @@
-import { LOG } from '../../common';
-import { FirstWordSolution as solution } from '../solutions';
+import { EQUALITY, LOG } from '../../common';
+import { my, best, creative } from './first-word-simplified.puzzle';
 
 const Tests = [
   { text: 'Hello world', expected: 'Hello' },
@@ -8,12 +8,12 @@ const Tests = [
   { text: 'Faraway Land beholds the horizon', expected: 'Faraway' }
 ];
 
-LOG.default(`Running ${solution.name} tests...`);
+LOG.default(`Running Tests...`);
 LOG.default(` ---- My ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.my(test.text);
-  const response = actual === test.expected;
+  const actual = my(test.text);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -22,8 +22,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Best ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.best(test.text);
-  const response = actual === test.expected;
+  const actual = best(test.text);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -32,8 +32,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Creative ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.creative(test.text);
-  const response = actual === test.expected;
+  const actual = creative(test.text);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();

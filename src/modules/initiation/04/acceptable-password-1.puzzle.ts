@@ -38,4 +38,7 @@ function isAcceptablePassword(password: string): boolean {
   return password.length > 6;
 }
 
-export { isAcceptablePassword };
+const best = (password: string): boolean => password.length > 6;
+const creative = (_: string) => !!_[0b110];
+
+export { isAcceptablePassword as my, best, creative };

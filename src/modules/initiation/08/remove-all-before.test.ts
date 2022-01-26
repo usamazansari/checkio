@@ -1,5 +1,5 @@
-import { LOG } from '../../common';
-import { RemoveAllBeforeSolution as solution } from '../solutions';
+import { EQUALITY, LOG } from '../../common';
+import { my } from './remove-all-before.puzzle';
 
 const Tests = [
   { values: [1, 2, 3, 4, 5], b: 3, expected: [3, 4, 5] },
@@ -10,12 +10,12 @@ const Tests = [
   { values: [7, 7, 7, 7, 7, 7, 7, 7, 7], b: 7, expected: [7, 7, 7, 7, 7, 7, 7, 7, 7] }
 ];
 
-LOG.default(`Running ${solution.name} tests...`);
+LOG.default(`Running Tests...`);
 LOG.default(` ---- My ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.my(test.values, test.b);
-  const response = actual.every(elem => test.expected.includes(elem));
+  const actual = my(test.values, test.b);
+  const response = EQUALITY.deep(actual, test.expected);
   LOG.default(`  Value    : ${test.values}`);
   LOG.default(`  Boundary : ${test.b}`);
   LOG.default(`  Expected : ${test.expected}`);
@@ -26,8 +26,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Best ---- `);
 
 // Tests.forEach(test => {
-//   const actual = solution.best(test.values, test.b);
-//   const response = actual.every(elem => test.expected.includes(elem));
+//   const actual = best(test.values, test.b);
+//   const response = EQUALITY.deep(actual, test.expected);
 //   LOG.default(`  Value    : ${test.values}`);
 //   LOG.default(`  Boundary : ${test.b}`);
 //   LOG.default(`  Expected : ${test.expected}`);
@@ -38,8 +38,8 @@ LOG.default(` ---- Best ---- `);
 LOG.default(` ---- Creative ---- `);
 
 // Tests.forEach(test => {
-//   const actual = solution.creative(test.values, test.b);
-//   const response = actual.every(elem => test.expected.includes(elem));
+//   const actual = creative(test.values, test.b);
+//   const response = EQUALITY.deep(actual, test.expected);
 //   LOG.default(`  Value    : ${test.values}`);
 //   LOG.default(`  Boundary : ${test.b}`);
 //   LOG.default(`  Expected : ${test.expected}`);

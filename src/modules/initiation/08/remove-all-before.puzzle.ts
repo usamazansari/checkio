@@ -42,4 +42,4 @@ function removeAllBefore(values: number[], b: number): number[] {
     : values;
 }
 
-export { removeAllBefore };
+export { removeAllBefore as my };

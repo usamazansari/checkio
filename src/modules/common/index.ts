@@ -1,1 +1,1 @@
-export { LOG } from './services';
+export { LOG, EQUALITY } from './services';

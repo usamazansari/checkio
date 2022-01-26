@@ -27,4 +27,4 @@ function backwardString(value: string): string {
   return value.split('').reverse().join('');
 }
 
-export { backwardString };
+export { backwardString as my };

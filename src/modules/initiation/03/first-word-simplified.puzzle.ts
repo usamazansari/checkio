@@ -42,4 +42,10 @@ function firstWord(text: string): string {
   return text.split(' ')[0].trim();
 }
 
-export { firstWord };
+const best = (text: string): string => text.split(' ')[0];
+const creative = (s: string): string => s.slice(
+  s.search(/\w/),
+  0o1 + s.search(/\w\b/)
+);
+
+export { firstWord as my, best, creative };

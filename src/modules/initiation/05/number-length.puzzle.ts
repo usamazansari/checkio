@@ -27,4 +27,8 @@ function numberLength(value: number): number {
   return `${Math.abs(value)}`.length;
 }
 
-export { numberLength };
+const best = (value: number): number => `${value}`.length;
+
+const creative = (n: number) => Math.max(...Array.from(`${n}`).keys()) + 1;
+
+export { numberLength as my, best, creative };

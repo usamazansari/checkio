@@ -1,5 +1,5 @@
-import { LOG } from '../../common';
-import { BackwardStringSolution as solution } from '../solutions';
+import { EQUALITY, LOG } from '../../common';
+import { my } from './backward-string.puzzle';
 
 const Tests = [
   { value: 'val', expected: 'lav' },
@@ -8,12 +8,12 @@ const Tests = [
   { value: '123456789', expected: '987654321' }
 ];
 
-LOG.default(`Running ${solution.name} tests...`);
+LOG.default(`Running Tests...`);
 LOG.default(` ---- My ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.my(test.value);
-  const response = actual === test.expected;
+  const actual = my(test.value);
+  const response = EQUALITY.shallow(actual, test.expected);
   LOG.default(`  Value    : ${test.value}`);
   LOG.default(`  Expected : ${test.expected}`);
   LOG.default(`  Actual   : ${actual}`);
@@ -23,8 +23,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Best ---- `);
 
 // Tests.forEach(test => {
-//   const actual = solution.best(test.value);
-//   const response = actual === test.expected;
+//   const actual = best(test.value);
+//   const response = EQUALITY.shallow(actual, test.expected);
 //   LOG.default(`  Value    : ${test.value}`);
 //   LOG.default(`  Expected : ${test.expected}`);
 //   LOG.default(`  Actual   : ${actual}`);
@@ -34,8 +34,8 @@ LOG.default(` ---- Best ---- `);
 LOG.default(` ---- Creative ---- `);
 
 // Tests.forEach(test => {
-//   const actual = solution.creative(test.value);
-//   const response = actual === test.expected;
+//   const actual = creative(test.value);
+//   const response = EQUALITY.shallow(actual, test.expected);
 //   LOG.default(`  Value    : ${test.value}`);
 //   LOG.default(`  Expected : ${test.expected}`);
 //   LOG.default(`  Actual   : ${actual}`);

@@ -1,18 +1,18 @@
-import { LOG } from '../../common';
-import { AcceptablePasswordOne as solution } from '../solutions';
+import { EQUALITY, LOG } from '../../common';
+import { my, best, creative } from './easy-unpack.puzzle';
 
 const Tests = [
-  { password: 'short', expected: false },
-  { password: 'muchlonger', expected: true },
-  { password: 'ashort', expected: false }
+  { values: [1, 2, 3, 4, 5, 6, 7, 9], expected: [1, 3, 7] },
+  { values: [1, 1, 1, 1], expected: [1, 1, 1] },
+  { values: [6, 3, 7], expected: [6, 7, 3] }
 ];
 
-LOG.default(`Running ${solution.name} tests...`);
+LOG.default(`Running Tests...`);
 LOG.default(` ---- My ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.my(test.password);
-  const response = actual === test.expected;
+  const actual = my(test.values);
+  const response = EQUALITY.deep(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -21,8 +21,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Best ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.best(test.password);
-  const response = actual === test.expected;
+  const actual = best(test.values);
+  const response = EQUALITY.deep(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();
@@ -31,8 +31,8 @@ Tests.forEach(test => {
 LOG.default(` ---- Creative ---- `);
 
 Tests.forEach(test => {
-  const actual = solution.creative(test.password);
-  const response = actual === test.expected;
+  const actual = creative(test.values);
+  const response = EQUALITY.deep(actual, test.expected);
   LOG.default(`  Expected: ${test.expected}`);
   LOG.default(`  Actual: ${actual}`);
   response ? LOG.pass() : LOG.fail();

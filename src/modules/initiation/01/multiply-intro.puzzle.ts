@@ -38,9 +38,18 @@
  * @param b The second number
  * @returns Product of `a` and `b`
  */
-
 function multTwo(a: number, b: number): number {
     return a * b;
 }
 
-export { multTwo };
+const best = (a: number, b: number): number => a * b;
+
+const creative = (a: number, b: number): number => [
+    ...'🐱'.repeat(a)
+        .replace(
+            /./ug,
+            '🦄'.repeat(b)
+        )
+].length;
+
+export { multTwo as my, best, creative };
