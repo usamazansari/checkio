@@ -31,4 +31,8 @@ function isAllUpper(text: string): boolean {
   return text === text.toUpperCase();
 }
 
-export { isAllUpper as my };
+const best = (text: string): boolean => text == text.toUpperCase();
+
+const creative = (text: string): boolean => text == text.toUpperCase();
+
+export { isAllUpper as my, best, creative };
