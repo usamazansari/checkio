@@ -1,6 +1,8 @@
 /**
  * # Multiply Intro
  *
+ * - Difficulty: Elementary
+ *
  * ## Statement
  * This is an intro mission, the purpose of which is to explain how to
  * solve missions on CheckiO and how to get the most out of solving

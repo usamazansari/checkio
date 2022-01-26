@@ -1,6 +1,8 @@
 /**
  * # First Word Simplified
  *
+ * - Difficulty: Elementary
+ *
  * ## Description
  * You are given a string where you have to find its first word.
  *

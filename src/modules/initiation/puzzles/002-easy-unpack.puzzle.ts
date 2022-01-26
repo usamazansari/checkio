@@ -1,6 +1,8 @@
 /**
  * # Easy Unpack
  *
+ * - Difficulty: Elementary
+ *
  * ## Description
  * Your mission here is to create a function that sets an `array` and
  * returns a `tuple` with `3` elements - the first, third and second
