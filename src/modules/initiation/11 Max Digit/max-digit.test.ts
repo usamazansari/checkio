@@ -1,4 +1,4 @@
-import { my } from './max-digit.puzzle';
+import { my, best, creative } from './max-digit.puzzle';
 
 const Tests = [
   { value: 0, expected: 0 },
@@ -17,19 +17,19 @@ describe('Max Digit using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.value}`, () => {
-  //       expect(best(test.value)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(best(test.value)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.value}`, () => {
-  //       expect(creative(test.value)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.value}`, () => {
+        expect(creative(test.value)).toBe(test.expected);
+      });
+    });
+  });
 });

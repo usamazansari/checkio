@@ -29,4 +29,8 @@ function maxDigit(value: number): number {
   return Math.max(...`${value}`.split('').map(_ => +_));
 }
 
-export { maxDigit as my };
+const best = (value: number): number => [...String(value)].map(Number).sort((a, b) => b - a)[0];
+
+const creative = (value: number) => Math.max(...Array.from(`${value}`).map(Number));
+
+export { maxDigit as my, best, creative };
