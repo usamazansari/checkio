@@ -83,6 +83,7 @@ Test using [Jest](https://jestjs.io/)
 | --------------------------- | ----------------------------------------------------------- |
 | Problem Entered             | ➕ problem added #`{{ number }}`                             |
 | Problem Solved              | ✔️ problem #`{{ number }}` solved                            |
+| Update Test Cases           | 🧪 updated test cases for problem #`{{ number }}`            |
 | Problem not solved          | ➖ problem #`{{ number }}` not solved                        |
 | Problem in progress         | 🚧 problem #`{{ number }}` in progress                       |
 | Best and Creative Solutions | ✨ added best/creative solutions for problem #`{{ number }}` |

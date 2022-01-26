@@ -6,7 +6,12 @@ const Tests = [
   { text: '100100', expected: 0 },
   { text: '001001', expected: 2 },
   { text: '012345679', expected: 1 },
-  { text: '0000', expected: 4 }
+  { text: '0000', expected: 4 },
+  { text: '734', expected: 0 },
+  { text: '110', expected: 0 },
+  { text: '567', expected: 0 },
+  { text: '1', expected: 0 },
+  { text: '0', expected: 1 }
 ];
 
 describe('Split Pairs using', () => {
