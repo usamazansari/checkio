@@ -1,4 +1,4 @@
-import { my } from './remove-all-before.puzzle';
+import { my, best, creative } from './remove-all-before.puzzle';
 
 const Tests = [
   { values: [1, 2, 3, 4, 5], b: 3, expected: [3, 4, 5] },
@@ -18,19 +18,19 @@ describe('Remove All Before using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
-  //       expect(best(test.values, test.b)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+        expect(best(test.values, test.b)).toEqual(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
-  //       expect(creative(test.values, test.b)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+        expect(creative(test.values, test.b)).toEqual(test.expected);
+      });
+    });
+  });
 });

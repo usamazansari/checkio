@@ -42,4 +42,10 @@ function removeAllBefore(values: number[], b: number): number[] {
     : values;
 }
 
-export { removeAllBefore as my };
+const best = (v: number[], b: number) => v.includes(b)
+  ? v.slice(v.indexOf(b))
+  : v;
+
+const creative = (v: number[], b: number) => v.slice(~(b = v.indexOf(b)) && b);
+
+export { removeAllBefore as my, best, creative };
