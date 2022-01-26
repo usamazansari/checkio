@@ -98,15 +98,15 @@ Tests are written in separate file for each problem
 
 ### Commit Message Standards
 
-| Event                   | Message                                           |
-| ----------------------- | ------------------------------------------------- |
-| Problem Entered         | ➕ problem added #`{{ number }}`                   |
-| Problem Solved          | ✔️ problem #`{{ number }}` solved                  |
-| Problem not solved      | ➖ problem #`{{ number }}` not solved              |
-| Problem in progress     | 🚧 problem #`{{ number }}` in progress             |
-| Best Solution           | ✨ Best solution for problem #`{{ number }}` added |
-| Workspace Configuration | *varies*                                          |
-| Update `README.md`      | 📝 updated README                                  |
+| Event                       | Message                                                         |
+| --------------------------- | --------------------------------------------------------------- |
+| Problem Entered             | ➕ problem added #`{{ number }}`                                 |
+| Problem Solved              | ✔️ problem #`{{ number }}` solved                                |
+| Problem not solved          | ➖ problem #`{{ number }}` not solved                            |
+| Problem in progress         | 🚧 problem #`{{ number }}` in progress                           |
+| Best and Creative Solutions | ✨ Best and Creative solutions for problem #`{{ number }}` added |
+| Workspace Configuration     | *varies*                                                        |
+| Update `README.md`          | 📝 updated README                                                |
 
 ---
 

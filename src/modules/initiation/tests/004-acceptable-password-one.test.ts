@@ -20,20 +20,20 @@ AcceptablePasswordOneTests.forEach(test => {
 
 LOG.default(` ---- Best ---- `);
 
-// AcceptablePasswordOneTests.forEach(test => {
-//   const actual = solution.best(test.password);
-//   const response = actual === test.expected;
-//   LOG.default(`  Expected: ${test.expected}`);
-//   LOG.default(`  Actual: ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
+AcceptablePasswordOneTests.forEach(test => {
+  const actual = solution.best(test.password);
+  const response = actual === test.expected;
+  LOG.default(`  Expected: ${test.expected}`);
+  LOG.default(`  Actual: ${actual}`);
+  response ? LOG.pass() : LOG.fail();
+});
 
 LOG.default(` ---- Creative ---- `);
 
-// AcceptablePasswordOneTests.forEach(test => {
-//   const actual = solution.creative(test.password);
-//   const response = actual === test.expected;
-//   LOG.default(`  Expected: ${test.expected}`);
-//   LOG.default(`  Actual: ${actual}`);
-//   response ? LOG.pass() : LOG.fail();
-// });
+AcceptablePasswordOneTests.forEach(test => {
+  const actual = solution.creative(test.password);
+  const response = actual === test.expected;
+  LOG.default(`  Expected: ${test.expected}`);
+  LOG.default(`  Actual: ${actual}`);
+  response ? LOG.pass() : LOG.fail();
+});
