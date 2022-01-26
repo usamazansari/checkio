@@ -14,11 +14,11 @@ const Tests = [
   { text: '0', expected: 1 }
 ];
 
-describe('Split Pairs using', () => {
+describe('Beginning Zeros using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
       it(`should return the correct result for ${test.text}`, () => {
-        expect(my(test.text)).toEqual(test.expected);
+        expect(my(test.text)).toBe(test.expected);
       });
     });
   });
@@ -26,7 +26,7 @@ describe('Split Pairs using', () => {
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
   //     it(`should return the correct result for ${test.text}`, () => {
-  //       expect(best(test.text)).toEqual(test.expected);
+  //       expect(best(test.text)).toBe(test.expected);
   //     });
   //   });
   // });
@@ -34,7 +34,7 @@ describe('Split Pairs using', () => {
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
   //     it(`should return the correct result for ${test.text}`, () => {
-  //       expect(creative(test.text)).toEqual(test.expected);
+  //       expect(creative(test.text)).toBe(test.expected);
   //     });
   //   });
   // });
