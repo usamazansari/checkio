@@ -1,4 +1,4 @@
-import { my } from './replace-first.puzzle';
+import { my, best, creative } from './replace-first.puzzle';
 
 const Tests = [
   { values: [1, 2, 3, 4], expected: [2, 3, 4, 1] },
@@ -15,19 +15,19 @@ describe('Replace First using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.values}`, () => {
-  //       expect(best(test.values)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values}`, () => {
+        expect(best(test.values)).toEqual(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct product for ${test.values}`, () => {
-  //       expect(creative(test.values)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return the correct product for ${test.values}`, () => {
+        expect(creative(test.values)).toEqual(test.expected);
+      });
+    });
+  });
 });

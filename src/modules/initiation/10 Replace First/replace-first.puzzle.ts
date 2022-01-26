@@ -27,9 +27,17 @@ import assert from "assert";
  */
 function replaceFirst(values: number[]): number[] {
   const popped = values.shift();
-  if (!!popped)
-    values.push(popped);
+  if (!!popped) values.push(popped);
   return values;
 }
 
-export { replaceFirst as my };
+const best = (values: number[]): number[] => values.length > 0
+  ? values.slice(1).concat(values[0])
+  : [];
+
+const creative = (values: number[]): number[] => {
+  const [first, ...rest] = values;
+  return first ? [...rest, first] : [];
+};
+
+export { replaceFirst as my, best, creative };
