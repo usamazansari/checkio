@@ -12,4 +12,4 @@ export {
 
 export {
 
-} from './tests';
+} Tests';;

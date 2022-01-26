@@ -1,7 +1,7 @@
 import { LOG } from '../../common';
 import { AcceptablePasswordOne as solution } from '../solutions';
 
-const AcceptablePasswordOneTests = [
+const Tests = [
   { password: 'short', expected: false },
   { password: 'muchlonger', expected: true },
   { password: 'ashort', expected: false }
@@ -10,7 +10,7 @@ const AcceptablePasswordOneTests = [
 LOG.default(`Running ${solution.name} tests...`);
 LOG.default(` ---- My ---- `);
 
-AcceptablePasswordOneTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.my(test.password);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);
@@ -20,7 +20,7 @@ AcceptablePasswordOneTests.forEach(test => {
 
 LOG.default(` ---- Best ---- `);
 
-AcceptablePasswordOneTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.best(test.password);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);
@@ -30,7 +30,7 @@ AcceptablePasswordOneTests.forEach(test => {
 
 LOG.default(` ---- Creative ---- `);
 
-AcceptablePasswordOneTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.creative(test.password);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);

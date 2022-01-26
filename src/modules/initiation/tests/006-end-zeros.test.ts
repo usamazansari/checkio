@@ -1,7 +1,7 @@
 import { LOG } from '../../common';
 import { EndZerosSolution as solution } from '../solutions';
 
-const EndZerosTests = [
+const Tests = [
   { value: 0, expected: 1 },
   { value: 1, expected: 0 },
   { value: 10, expected: 1 },
@@ -13,7 +13,7 @@ const EndZerosTests = [
 LOG.default(`Running ${solution.name} tests...`);
 LOG.default(` ---- My ---- `);
 
-EndZerosTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.my(test.value);
   const response = actual === test.expected;
   LOG.default(`  Value    : ${test.value}`);
@@ -24,7 +24,7 @@ EndZerosTests.forEach(test => {
 
 LOG.default(` ---- Best ---- `);
 
-EndZerosTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.best(test.value);
   const response = actual === test.expected;
   LOG.default(`  Value    : ${test.value}`);
@@ -35,7 +35,7 @@ EndZerosTests.forEach(test => {
 
 LOG.default(` ---- Creative ---- `);
 
-EndZerosTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.creative(test.value);
   const response = actual === test.expected;
   LOG.default(`  Value    : ${test.value}`);

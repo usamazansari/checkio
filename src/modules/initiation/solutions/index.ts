@@ -5,3 +5,4 @@ export { solution as AcceptablePasswordOne } from './004-acceptable-password-1.s
 export { solution as NumberLengthSolution } from './005-number-length.solution';
 export { solution as EndZerosSolution } from './006-end-zeros.solution';
 export { solution as BackwardStringSolution } from './007-backward-string.solution';
+export { solution as RemoveAllBeforeSolution } from './008-remove-all-before.solution';

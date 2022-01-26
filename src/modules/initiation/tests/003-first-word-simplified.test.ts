@@ -1,7 +1,7 @@
 import { LOG } from '../../common';
 import { FirstWordSolution as solution } from '../solutions';
 
-const FirstWordSimplifiedTests = [
+const Tests = [
   { text: 'Hello world', expected: 'Hello' },
   { text: 'a b c d e f', expected: 'a' },
   { text: 'abc def', expected: 'abc' },
@@ -11,7 +11,7 @@ const FirstWordSimplifiedTests = [
 LOG.default(`Running ${solution.name} tests...`);
 LOG.default(` ---- My ---- `);
 
-FirstWordSimplifiedTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.my(test.text);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);
@@ -21,7 +21,7 @@ FirstWordSimplifiedTests.forEach(test => {
 
 LOG.default(` ---- Best ---- `);
 
-FirstWordSimplifiedTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.best(test.text);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);
@@ -31,7 +31,7 @@ FirstWordSimplifiedTests.forEach(test => {
 
 LOG.default(` ---- Creative ---- `);
 
-FirstWordSimplifiedTests.forEach(test => {
+Tests.forEach(test => {
   const actual = solution.creative(test.text);
   const response = actual === test.expected;
   LOG.default(`  Expected: ${test.expected}`);
