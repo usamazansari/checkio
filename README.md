@@ -1,11 +1,10 @@
 # CheckIO
 
-### Solution to puzzles at [checkio.org](https://js.checkio.org/)
-
-1. [Multiply Intro](puzzles/001-multiply-intro.ts)
-2. [Easy Unpack](puzzles/002-easy-unpack.ts)
-
 ---
+
+### Solutions
+
+The list of all the solutions can be found here
 
 ### Workspace Setup
 
@@ -21,11 +20,9 @@
 
 The problem function should have documentation as per the description at `checkio.org`
 
-
-The 3 types of files to be interacted are:
+The 2 types of files to be interacted are:
 1. Puzzles
-2. Solutions
-3. Tests
+2. Tests
 
 ```ts
 // {{ number }}-{{ description }}.puzzle.ts
@@ -72,19 +69,6 @@ The 3 types of files to be interacted are:
  * @returns Description of returning value
  */
 function problem(...params: Parameters): Type<Return> {}
-```
-
-> Remember to remove all the trailing whitespaces until `eslint` is added
-
-The best solution and the creative solution are added in respective solution files.
-No documentation required for best and creative solutions.
-
-```ts
-// {{ number }}-{{ description }}.solution.ts
-const solutions = {
-  best: (...params) => {} /* the best solution */,
-  creative: (...params) => {} /* the creative solution */
-}
 ```
 
 Tests are written in separate file for each problem

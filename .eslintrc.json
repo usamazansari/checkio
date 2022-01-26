@@ -34,7 +34,11 @@
         "no-extra-boolean-cast": "off",
         "@typescript-eslint/no-redeclare": "warn",
         "no-trailing-spaces": "warn",
-        "prefer-const": "warn"
+        "prefer-const": "warn",
+        "semi": [
+          "always",
+          "off"
+        ]
       }
     }
   ]
