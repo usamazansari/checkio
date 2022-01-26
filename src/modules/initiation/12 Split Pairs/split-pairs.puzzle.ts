@@ -1,7 +1,7 @@
 /**
  * # Split Pairs
  * 
- * - Difficulty: Elementary
+ * - Difficulty: Elementary+
  * 
  * ## Description
  * Split the string into pairs of two characters. If the string contains
@@ -40,4 +40,10 @@ function splitPairs(text: string): string[] {
   return output;
 }
 
-export { splitPairs as my };
+const best = (t: string) => (t + '_').match(/../g) || [];
+
+const creative = (s: string) => s.padEnd(s.length + s.length % 2, '_')
+  .split(/(\w{2})/)
+  .filter(n => !!n);
+
+export { splitPairs as my, best, creative };
