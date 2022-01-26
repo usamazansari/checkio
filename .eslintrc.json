@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {},
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/comma-dangle": "warn",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-constant-condition": "off",
+        "@typescript-eslint/no-duplicate-imports": "error",
+        "@typescript-eslint/no-empty-interface": "warn",
+        "@typescript-eslint/no-extra-boolean-cast": "off",
+        "no-extra-boolean-cast": "off",
+        "@typescript-eslint/no-redeclare": "warn",
+        "no-trailing-spaces": "warn",
+        "prefer-const": "warn"
+      }
+    }
+  ]
+}
