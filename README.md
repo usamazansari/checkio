@@ -10,9 +10,6 @@ The list of all the solutions can be found here
 
 1. Typescript configuration
 2. Hot reload using `nodemon`
-3. `ts-node` should be installed globally
-
-> To debug a file, make sure it is open in the editor. Only then the debugger would work.
 
 ---
 
@@ -25,7 +22,7 @@ The 2 types of files to be interacted are:
 2. Tests
 
 ```ts
-// {{ number }}-{{ description }}.puzzle.ts
+// {{ description }}.puzzle.ts
 /**
  * # Name of the problem
  *
@@ -74,9 +71,23 @@ function problem(...params: Parameters): Type<Return> {}
 Tests are written in separate file for each problem
 
 ```ts
-// {{ number }}-{{ description }}.test.ts
-// TBD after installation of `jest`
+// {{ description }}.test.ts
+const Tests = [/* Test Cases with expectations */];
+Tests.forEach(test => {
+  const actual = my(test.a, test.b); /* params */
+  const response = EQUALITY.shallow(actual, test.expected); /* Service to check Equality */
+  LOG.default(`  Expected: ${test.expected}`); /* Service to perform logging */
+  LOG.default(`  Actual: ${actual}`);
+  response ? LOG.pass() : LOG.fail();
+});
 ```
+
+---
+
+### Debugging
+
+1. Updated the name of test file in `test.ts`
+2. Hit `F5` in VS Code
 
 ---
 
