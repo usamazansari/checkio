@@ -13,7 +13,7 @@ const Tests = [
 describe('Split Pairs using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(my(test.text)).toEqual(test.expected);
       });
     });
@@ -21,7 +21,7 @@ describe('Split Pairs using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(best(test.text)).toEqual(test.expected);
       });
     });
@@ -29,7 +29,7 @@ describe('Split Pairs using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(creative(test.text)).toEqual(test.expected);
       });
     });

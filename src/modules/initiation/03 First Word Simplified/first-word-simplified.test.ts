@@ -2,15 +2,15 @@ import { my, best, creative } from './first-word-simplified.puzzle';
 
 const Tests = [
   { text: 'Hello world', expected: 'Hello' },
-  { text: 'a b c d e f', expected: 'a' },
-  { text: 'abc def', expected: 'abc' },
-  { text: 'Faraway Land beholds the horizon', expected: 'Faraway' }
+  { text: 'a word', expected: 'a' },
+  { text: 'hi', expected: 'hi' },
+  { text: 'Holy Edison', expected: 'Holy' }
 ];
 
 describe('First Word Simplified using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(my(test.text)).toBe(test.expected);
       });
     });
@@ -18,7 +18,7 @@ describe('First Word Simplified using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(best(test.text)).toBe(test.expected);
       });
     });
@@ -26,7 +26,7 @@ describe('First Word Simplified using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.text}`, () => {
+      it(`should return the correct result for ${test.text}`, () => {
         expect(creative(test.text)).toBe(test.expected);
       });
     });

@@ -6,13 +6,15 @@ const Tests = [
   { values: [1, 1, 2, 4, 2, 3, 4], b: 2, expected: [2, 4, 2, 3, 4] },
   { values: [1, 1, 5, 6, 7], b: 2, expected: [1, 1, 5, 6, 7] },
   { values: [], b: 0, expected: [] },
-  { values: [7, 7, 7, 7, 7, 7, 7, 7, 7], b: 7, expected: [7, 7, 7, 7, 7, 7, 7, 7, 7] }
+  { values: [7, 7, 7, 7, 7, 7, 7, 7, 7], b: 7, expected: [7, 7, 7, 7, 7, 7, 7, 7, 7] },
+  { values: [10, 1, 5, 6, 7, 10], b: 5, expected: [5, 6, 7, 10] },
+  { values: [1, 2, 6, 7, 1, 2, 4, 6, 7, 8, 3, 5, 2, 3], b: 6, expected: [6, 7, 1, 2, 4, 6, 7, 8, 3, 5, 2, 3] }
 ];
 
 describe('Remove All Before using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
         expect(my(test.values, test.b)).toEqual(test.expected);
       });
     });
@@ -20,7 +22,7 @@ describe('Remove All Before using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
         expect(best(test.values, test.b)).toEqual(test.expected);
       });
     });
@@ -28,7 +30,7 @@ describe('Remove All Before using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct product for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
         expect(creative(test.values, test.b)).toEqual(test.expected);
       });
     });
