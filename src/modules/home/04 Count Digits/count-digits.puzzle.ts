@@ -1,20 +1,15 @@
 /**
- * # Sum Numbers
+ * # Count Digits
  * 
  * - Difficulty: Elementary
  * 
  * ## Description
- * In a given text you need to sum the `number`s. Only separated 
- * `number`s should be counted. If a `number` is part of a word it 
- * shouldn't be counted.
- * 
- * The text consists from `number`s, spaces ` ` and english letters
- * `[A-Z][a-z]`
+ * You need to count the number of digits in a given `string`.
  * 
  * ## Input
  * A `string`.
  * 
- * `Output`
+ * ## Output
  * An `int`.
  * 
  * ## Example
@@ -22,7 +17,7 @@
  * countDigits('hi') == 0;
  * countDigits('who is 1st here') == 1;
  * countDigits('my numbers is 2') == 1;
- * countDigits('This picture is an oil on canvas ';
+ * countDigits('This picture is an oil on canvas '
  *  'painting by Danish artist Anna '
  *  'Petersen between 1845 and 1910 year') == 8;
  * countDigits('5 plus 6 is') == 2;

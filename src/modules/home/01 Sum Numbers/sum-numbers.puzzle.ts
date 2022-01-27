@@ -9,12 +9,12 @@
  * shouldn't be counted.
  * 
  * The text consists from `number`s, spaces ` ` and english letters
- * `[A-Z][a-z]`
+ * `[A-Za-z]`
  * 
  * ## Input
  * A `string`.
  * 
- * `Output`
+ * ## Output
  * An `int`.
  * 
  * ## Example
@@ -22,7 +22,7 @@
  * sumNumbers('hi') == 0;
  * sumNumbers('who is 1st here') == 0;
  * sumNumbers('my numbers is 2') == 2;
- * sumNumbers('This picture is an oil on canvas ';
+ * sumNumbers('This picture is an oil on canvas '
  *  'painting by Danish artist Anna '
  *  'Petersen between 1845 and 1910 year') == 3755;
  * sumNumbers('5 plus 6 is') == 11;
