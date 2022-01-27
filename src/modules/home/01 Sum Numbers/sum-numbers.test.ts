@@ -19,7 +19,7 @@ describe('Sum Numbers using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
       it(`should return the correct result for '${test.test}'`, () => {
-        expect(my(test.test)).toEqual(test.expected);
+        expect(my(test.test)).toBe(test.expected);
       });
     });
   });
@@ -27,7 +27,7 @@ describe('Sum Numbers using', () => {
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
   //     it(`should return the correct result for ${test.values}`, () => {
-  //       expect(best(test.values)).toEqual(test.expected);
+  //       expect(best(test.values)).toBe(test.expected);
   //     });
   //   });
   // });
@@ -35,7 +35,7 @@ describe('Sum Numbers using', () => {
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
   //     it(`should return the correct result for ${test.values}`, () => {
-  //       expect(creative(test.values)).toEqual(test.expected);
+  //       expect(creative(test.values)).toBe(test.expected);
   //     });
   //   });
   // });
