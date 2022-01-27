@@ -51,16 +51,8 @@
  * @return {*}  {number}
  */
 function nearestValue(values: number[], search: number): number {
-  let output = 0;
-
-  const mapped = values.sort((a, b) => a - b).map(_ => _ - search);
-
-  if (mapped.includes(0)) output = search;
-  else {
-
-  }
-
-  return output;
+  const minDiff = Math.min(...values.map(_ => Math.abs(_ - search)));
+  return values.includes(search - minDiff) ? search - minDiff : search + minDiff;
 }
 
 export { nearestValue as my };
