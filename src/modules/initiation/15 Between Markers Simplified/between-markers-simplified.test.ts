@@ -5,7 +5,7 @@ const Tests = [
   { line: 'What is [apple]', left: '[', right: ']', expected: 'apple' },
   { line: 'What is ><', left: '>', right: '<', expected: '' },
   { line: '[an apple]', left: '[', right: ']', expected: 'an apple' },
-  { line: '>Apple< is simple', left: '>', right: '<', expected: 'an apple' }
+  { line: '>Apple< is simple', left: '>', right: '<', expected: 'Apple' }
 ];
 
 describe('Between Markers Simplified using', () => {
