@@ -18,7 +18,7 @@ const Tests = [
 describe('Sum Numbers using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for '${test.test}'`, () => {
+      it(`should return '${test.expected}' for '${test.test}'`, () => {
         expect(my(test.test)).toBe(test.expected);
       });
     });
@@ -26,7 +26,7 @@ describe('Sum Numbers using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for '${test.test}'`, () => {
   //       expect(best(test.values)).toBe(test.expected);
   //     });
   //   });
@@ -34,7 +34,7 @@ describe('Sum Numbers using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for '${test.test}'`, () => {
   //       expect(creative(test.values)).toBe(test.expected);
   //     });
   //   });

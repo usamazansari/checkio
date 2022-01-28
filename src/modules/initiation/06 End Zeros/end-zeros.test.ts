@@ -14,7 +14,7 @@ const Tests = [
 describe('End Zeros using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.value}`, () => {
+      it(`should return '${test.expected}' for '${test.value}'`, () => {
         expect(my(test.value)).toBe(test.expected);
       });
     });
@@ -22,7 +22,7 @@ describe('End Zeros using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.value}`, () => {
+      it(`should return '${test.expected}' for '${test.value}'`, () => {
         expect(best(test.value)).toBe(test.expected);
       });
     });
@@ -30,7 +30,7 @@ describe('End Zeros using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.value}`, () => {
+      it(`should return '${test.expected}' for '${test.value}'`, () => {
         expect(creative(test.value)).toBe(test.expected);
       });
     });

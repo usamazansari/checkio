@@ -17,7 +17,7 @@ const Tests = [
 describe('Nearest Values using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+      it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
         expect(my(test.values, test.search)).toBe(test.expected);
       });
     });
@@ -25,7 +25,7 @@ describe('Nearest Values using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
   //       expect(best(test.values, test.search)).toBe(test.expected);
   //     });
   //   });
@@ -33,7 +33,7 @@ describe('Nearest Values using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
   //       expect(creative(test.values, test.search)).toBe(test.expected);
   //     });
   //   });

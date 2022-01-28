@@ -9,7 +9,7 @@ const Tests = [
 describe('Multiply Intro using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.a} * ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.a}' * '${test.b}'`, () => {
         expect(my(test.a, test.b)).toBe(test.expected);
       });
     });
@@ -17,7 +17,7 @@ describe('Multiply Intro using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.a} * ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.a}' * '${test.b}'`, () => {
         expect(best(test.a, test.b)).toBe(test.expected);
       });
     });
@@ -25,7 +25,7 @@ describe('Multiply Intro using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.a} * ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.a}' * '${test.b}'`, () => {
         expect(creative(test.a, test.b)).toBe(test.expected);
       });
     });

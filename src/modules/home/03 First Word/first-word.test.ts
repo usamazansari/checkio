@@ -15,7 +15,7 @@ const Tests = [
 describe('Easy Unpack using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.text}`, () => {
+      it(`should return '${test.expected}' for '${test.text}'`, () => {
         expect(my(test.text)).toBe(test.expected);
       });
     });
@@ -23,7 +23,7 @@ describe('Easy Unpack using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.text}`, () => {
+  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
   //       expect(best(test.text)).toBe(test.expected);
   //     });
   //   });
@@ -31,7 +31,7 @@ describe('Easy Unpack using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.text}`, () => {
+  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
   //       expect(creative(test.text)).toBe(test.expected);
   //     });
   //   });

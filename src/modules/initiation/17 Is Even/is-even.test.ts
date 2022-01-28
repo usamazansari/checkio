@@ -11,7 +11,7 @@ const Tests = [
 describe('Is Even using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.num}`, () => {
+      it(`should return '${test.expected}' for '${test.num}'`, () => {
         expect(my(test.num)).toBe(test.expected);
       });
     });
@@ -19,7 +19,7 @@ describe('Is Even using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for '${test.num}'`, () => {
   //       expect(best(test.values, test.search)).toBe(test.expected);
   //     });
   //   });
@@ -27,7 +27,7 @@ describe('Is Even using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for '${test.num}'`, () => {
   //       expect(creative(test.values, test.search)).toBe(test.expected);
   //     });
   //   });

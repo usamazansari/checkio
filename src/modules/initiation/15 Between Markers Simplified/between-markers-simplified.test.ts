@@ -11,7 +11,7 @@ const Tests = [
 describe('Between Markers Simplified using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
+      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
         expect(my(test.line, test.left, test.right)).toBe(test.expected);
       });
     });
@@ -19,7 +19,7 @@ describe('Between Markers Simplified using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
   //       expect(best(test.values, test.search)).toBe(test.expected);
   //     });
   //   });
@@ -27,7 +27,7 @@ describe('Between Markers Simplified using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return the correct result for searching ${test.search} in ${test.values}`, () => {
+  //     it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
   //       expect(creative(test.values, test.search)).toBe(test.expected);
   //     });
   //   });

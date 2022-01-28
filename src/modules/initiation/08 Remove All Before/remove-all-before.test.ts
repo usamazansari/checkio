@@ -14,7 +14,7 @@ const Tests = [
 describe('Remove All Before using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.values}' bounded at '${test.b}'`, () => {
         expect(my(test.values, test.b)).toEqual(test.expected);
       });
     });
@@ -22,7 +22,7 @@ describe('Remove All Before using', () => {
 
   describe('Best solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.values}' bounded at '${test.b}'`, () => {
         expect(best(test.values, test.b)).toEqual(test.expected);
       });
     });
@@ -30,7 +30,7 @@ describe('Remove All Before using', () => {
 
   describe('Creative solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.values} bounded at ${test.b}`, () => {
+      it(`should return '${test.expected}' for '${test.values}' bounded at '${test.b}'`, () => {
         expect(creative(test.values, test.b)).toEqual(test.expected);
       });
     });
