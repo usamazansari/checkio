@@ -1,4 +1,4 @@
-import { my } from './is-even.puzzle';
+import { my, best, creative } from './is-even.puzzle';
 
 const Tests = [
   { num: 2, expected: true },
@@ -17,19 +17,19 @@ describe('Is Even using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.num}'`, () => {
-  //       expect(best(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.num}'`, () => {
+        expect(best(test.num)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.num}'`, () => {
-  //       expect(creative(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.num}'`, () => {
+        expect(creative(test.num)).toBe(test.expected);
+      });
+    });
+  });
 });

@@ -34,4 +34,8 @@ function isEven(num: number): boolean {
   return !(num % 2);
 }
 
-export { isEven as my };
+const best = (num: number): boolean => !(num % 2);
+
+const creative = (x: number) => !!(x & 1 ^ 1);
+
+export { isEven as my, best, creative };
