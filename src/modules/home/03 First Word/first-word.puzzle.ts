@@ -45,4 +45,8 @@ function firstWord(text: string): string {
   return text.match(/[A-Za-z\']*/g)?.filter(_ => !!_)[0] ?? '';
 }
 
-export { firstWord as my };
+const best = (text: string): string => text.match(/[A-Za-z']+/)?.filter(_ => !!_)[0] ?? '';
+
+const creative = (text: string): string => text.match(/[^ .,]+/)?.filter(_ => !!_)[0] ?? '';
+
+export { firstWord as my, best, creative };
