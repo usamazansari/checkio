@@ -42,4 +42,15 @@ function correctSentence(text: string): string {
     : rectified;
 }
 
-export { correctSentence as my };
+const best = (text: string): string => text
+  .replace(/^./, x => x.toUpperCase())
+  .replace(/\.$/, '')
+  + '.';
+
+const creative = (
+  t: string,
+  f = t[0],
+  e = t.endsWith('.') ? '' : '.'
+): string => f.toUpperCase() + t.substr(1) + e;
+
+export { correctSentence as my, best, creative };
