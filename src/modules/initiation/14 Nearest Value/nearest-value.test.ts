@@ -1,4 +1,4 @@
-import { my } from './nearest-value.puzzle';
+import { my, best, creative } from './nearest-value.puzzle';
 
 const Tests = [
   { values: [4, 7, 10, 11, 12, 17], search: 9, expected: 10 },
@@ -23,19 +23,19 @@ describe('Nearest Values using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
-  //       expect(best(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
+        expect(best(test.values, test.search)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
-  //       expect(creative(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for searching '${test.search}' in '${test.values}'`, () => {
+        expect(creative(test.values, test.search)).toBe(test.expected);
+      });
+    });
+  });
 });
