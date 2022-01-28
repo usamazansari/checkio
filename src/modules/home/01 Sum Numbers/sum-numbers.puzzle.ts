@@ -38,4 +38,10 @@ function sumNumbers(test: string): number {
     .reduce((acc, _) => { acc += _; return acc; }, 0) ?? 0;
 }
 
-export { sumNumbers as my };
+const best = (text: string): number => text.split(' ').reduce((a, w) => /^[0-9]+$/.test(w)
+  ? a + +w
+  : a, 0);
+
+const creative = (a: string) => a.split(/ /).reduce((a, b) => a + ~~+b, 0);
+
+export { sumNumbers as my, best, creative };

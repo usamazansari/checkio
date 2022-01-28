@@ -1,4 +1,4 @@
-import { my } from './sum-numbers.puzzle';
+import { my, best, creative } from './sum-numbers.puzzle';
 
 const Tests = [
   { test: 'hi', expected: 0 },
@@ -24,19 +24,19 @@ describe('Sum Numbers using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.test}'`, () => {
-  //       expect(best(test.values)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.test}'`, () => {
+        expect(best(test.test)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.test}'`, () => {
-  //       expect(creative(test.values)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.test}'`, () => {
+        expect(creative(test.test)).toBe(test.expected);
+      });
+    });
+  });
 });
