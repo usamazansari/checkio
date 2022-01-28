@@ -1,4 +1,4 @@
-import { my } from './between-markers-simplified.puzzle';
+import { my, best, creative } from './between-markers-simplified.puzzle';
 
 const Tests = [
   { line: 'What is >apple<', left: '>', right: '<', expected: 'apple' },
@@ -17,19 +17,19 @@ describe('Between Markers Simplified using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
-  //       expect(best(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
+        expect(best(test.line, test.left, test.right)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
-  //       expect(creative(test.values, test.search)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
+        expect(creative(test.line, test.left, test.right)).toBe(test.expected);
+      });
+    });
+  });
 });

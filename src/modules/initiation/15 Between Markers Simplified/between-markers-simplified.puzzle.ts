@@ -47,4 +47,8 @@ function betweenMarkers(line: string, left: string, right: string): string {
   return (line.split(left)[1] || '').split(right)[0] || '';
 }
 
-export { betweenMarkers as my };
+const best = (line: string, left: string, right: string): string => line.substring(line.indexOf(left) + 1, line.indexOf(right));
+
+const creative = (t: string, l: string, r: string): string => t.match(`\\${l}(.*?)\\${r}`)?.filter(_ => !!_)[1] ?? '';
+
+export { betweenMarkers as my, best, creative };
