@@ -44,4 +44,8 @@ function threeWords(text: string): boolean {
   return !!text.match(/\b[A-Za-z]+\b \b[A-Za-z]+\b \b[A-Za-z]+\b/g)?.filter(_ => !!_).length;
 }
 
-export { threeWords as my };
+const best = (text: string): boolean => /\b[a-z]+ [a-z]+ [a-z]+/i.test(text);
+
+const creative = (_: string): boolean => /(?:[A-Za-z]+\b\s?){3}/.test(_);
+
+export { threeWords as my, best, creative };
