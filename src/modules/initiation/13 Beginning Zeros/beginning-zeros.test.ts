@@ -1,4 +1,4 @@
-import { my } from './beginning-zeros.puzzle';
+import { my, best, creative } from './beginning-zeros.puzzle';
 
 const Tests = [
   { text: '100', expected: 0 },
@@ -17,25 +17,25 @@ const Tests = [
 describe('Beginning Zeros using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return the correct result for ${test.text}`, () => {
+      it(`should return '${test.expected}' for '${test.text}'`, () => {
         expect(my(test.text)).toBe(test.expected);
       });
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.text}`, () => {
-  //       expect(best(test.text)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.text}'`, () => {
+        expect(best(test.text)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return the correct result for ${test.text}`, () => {
-  //       expect(creative(test.text)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' for '${test.text}'`, () => {
+        expect(creative(test.text)).toBe(test.expected);
+      });
+    });
+  });
 });

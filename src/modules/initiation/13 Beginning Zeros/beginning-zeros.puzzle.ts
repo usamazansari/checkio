@@ -34,4 +34,7 @@ function beginningZeros(text: string): number {
     : text.length;
 }
 
-export { beginningZeros as my };
+const best = (t: string): number => t.match(/^0*/)?.filter(_ => !!_)[0].length ?? 0;
+const creative = (text: string): number => (`0${text}`.match(/^0+/)?.filter(_ => !!_)[0].length ?? 1 - 1);
+
+export { beginningZeros as my, best, creative };
