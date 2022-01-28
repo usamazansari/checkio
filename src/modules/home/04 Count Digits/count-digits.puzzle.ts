@@ -31,4 +31,8 @@ function countDigits(text: string): number {
   return text.match(/\d/g)?.filter(_ => !!_).length ?? 0;
 }
 
-export { countDigits as my };
+const best = (text: string): number => [...text].filter(c => /[0-9]/.test(c)).length;
+
+const creative = (text: string): number => [...text].filter(e => !isNaN(parseInt(e))).length;
+
+export { countDigits as my, best, creative };
