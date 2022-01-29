@@ -15,7 +15,7 @@ const Tests = [
 
 ];
 
-describe('Between Markers using', () => {
+describe('Non Unique Elements using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
       it(`should return '${test.expected.length > 7 ? 'very long output' : test.expected}' for '${test.data.length > 7 ? 'very long input' : test.data}'`, () => {
