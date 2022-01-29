@@ -57,7 +57,7 @@ const Tests = [
   }
 ];
 
-describe('Bigger Price using', () => {
+describe('Between Markers using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
       it(`should return '${test.expected}' between '${test.begin}' & '${test.end}'`, () => {
