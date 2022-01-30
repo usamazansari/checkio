@@ -1,4 +1,4 @@
-import { my } from './non-unique-elements.puzzle';
+import { my, best, creative } from './non-unique-elements.puzzle';
 
 const Tests = [
   { data: [1, 2, 3, 1, 3], expected: [1, 3, 1, 3] },
@@ -24,20 +24,20 @@ describe('Non Unique Elements using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(best(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected.length > 7 ? 'very long output' : test.expected}' for '${test.data.length > 7 ? 'very long input' : test.data}'`, () => {
+        expect(best(test.data)).toEqual(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(creative(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected.length > 7 ? 'very long output' : test.expected}' for '${test.data.length > 7 ? 'very long input' : test.data}'`, () => {
+        expect(creative(test.data)).toEqual(test.expected);
+      });
+    });
+  });
 });
 
