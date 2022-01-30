@@ -1,4 +1,4 @@
-import { my } from './popular-words.puzzle';
+import { my, best, creative } from './popular-words.puzzle';
 
 const Tests = [
   {
@@ -77,20 +77,20 @@ describe('Popular Words using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(best(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return expected result for '${test.text.length > 48 ? 'very long input' : test.text}' having ${test.words.length > 7 ? 'many words' : 'words: ' + test.words.join(' | ')}`, () => {
+        expect(best(test.text, test.words)).toEqual(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(creative(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return expected result for '${test.text.length > 48 ? 'very long input' : test.text}' having ${test.words.length > 7 ? 'many words' : 'words: ' + test.words.join(' | ')}`, () => {
+        expect(creative(test.text, test.words)).toEqual(test.expected);
+      });
+    });
+  });
 });
 

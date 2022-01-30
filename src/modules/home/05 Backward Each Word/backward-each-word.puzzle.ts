@@ -36,7 +36,7 @@ function backwardStringByWord(text: string): string {
     .join(' ');
 }
 
-const best = (text: string): string => '';
-const creative = (text: string): string => '';
+const best = (t: string): string => t.replace(/\w+/g, w => [...w].reverse().join(''));
+const creative = (text: string): string => text.split(' ').map(palavra => [...palavra].reverse().join('')).join(' ');
 
 export { backwardStringByWord as my, best, creative };

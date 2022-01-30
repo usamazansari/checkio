@@ -1,4 +1,4 @@
-import { my } from './bigger-price.puzzle';
+import { my, best, creative } from './bigger-price.puzzle';
 
 const Tests = [
   {
@@ -40,25 +40,25 @@ const Tests = [
 describe('Bigger Price using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.limit}'`, () => {
+      it(`should return correct response for '${test.limit}'`, () => {
         expect(my(test.limit, test.data)).toEqual(test.expected);
       });
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(best(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return correct response for '${test.limit}'`, () => {
+        expect(best(test.limit, test.data)).toEqual(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(creative(test.text)).toEqual(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return correct response for '${test.limit}'`, () => {
+        expect(creative(test.limit, test.data)).toEqual(test.expected);
+      });
+    });
+  });
 });

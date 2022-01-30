@@ -1,4 +1,4 @@
-import { my } from './between-markers.puzzle';
+import { my, best, creative } from './between-markers.puzzle';
 
 const Tests = [
   {
@@ -66,19 +66,19 @@ describe('Between Markers using', () => {
     });
   });
 
-  // describe('Best solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(best(test.text)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Best solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' between '${test.begin}' & '${test.end}'`, () => {
+        expect(best(test.text, test.begin, test.end)).toBe(test.expected);
+      });
+    });
+  });
 
-  // describe('Creative solution', () => {
-  //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text}'`, () => {
-  //       expect(creative(test.text)).toBe(test.expected);
-  //     });
-  //   });
-  // });
+  describe('Creative solution', () => {
+    Tests.forEach(test => {
+      it(`should return '${test.expected}' between '${test.begin}' & '${test.end}'`, () => {
+        expect(creative(test.text, test.begin, test.end)).toBe(test.expected);
+      });
+    });
+  });
 });

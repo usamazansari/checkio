@@ -62,4 +62,8 @@ function nonUniqueElements(data: number[]): number[] {
   }, []);
 }
 
-export { nonUniqueElements as my };
+const best = (data: number[]): number[] => data.filter((x: number) => data.lastIndexOf(x) !== data.indexOf(x));
+
+const creative = (data: number[]): number[] => data.filter(x => data.indexOf(x) !== data.lastIndexOf(x));
+
+export { nonUniqueElements as my, best, creative };

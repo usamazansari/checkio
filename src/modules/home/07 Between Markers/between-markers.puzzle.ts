@@ -61,4 +61,16 @@ function betweenMarkers(text: string, begin: string, end: string): string {
   return text;
 }
 
-export { betweenMarkers as my };
+const best = (text: string, begin: string, end: string): string => {
+  const p1 = text.includes(begin) ? text.indexOf(begin) + begin.length : 0;
+  const p2 = text.includes(end) ? text.indexOf(end) : text.length;
+  return text.slice(p1, p2);
+};
+
+const creative = (a: string, b: string, c: string) => (
+  [a, c] = a.split(c), c?.includes(b)
+    ? ''
+    : a.split(b)[1] || a
+);
+
+export { betweenMarkers as my, best, creative };

@@ -52,4 +52,11 @@ function biggerPrice(limit: number, data: Stock[]): Stock[] {
   return data.sort((a, b) => b.price - a.price).slice(0, limit);
 }
 
-export { biggerPrice as my };
+const best = (limit: number, data: Stock[]): Stock[] => data.sort((x, y) => y.price - x.price).slice(0, limit);
+
+const creative = (limit: number, data: Stock[]): Stock[] => {
+  data.sort((a, b) => a['price'] - b['price']);
+  return data.reverse().slice(0, limit);
+};
+
+export { biggerPrice as my, best, creative };
