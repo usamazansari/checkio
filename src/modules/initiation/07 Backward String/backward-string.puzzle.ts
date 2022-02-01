@@ -27,12 +27,8 @@ function backwardString(value: string): string {
   return value.split('').reverse().join('');
 }
 
-const best = (value: string): string => {
-  return value.split('').reverse().join('');
-};
+const best = (value: string): string => value.split('').reverse().join('');
 
-const creative = (value: string): string => {
-  return value.split('').reverse().join('');
-};
+const creative = (value: string): string => value.split('').reverse().join('');
 
 export { backwardString as my, best, creative };

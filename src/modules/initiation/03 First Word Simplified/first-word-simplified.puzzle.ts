@@ -43,6 +43,7 @@ function firstWord(text: string): string {
 }
 
 const best = (text: string): string => text.split(' ')[0];
+
 const creative = (s: string): string => s.slice(
   s.search(/\w/),
   0o1 + s.search(/\w\b/)
