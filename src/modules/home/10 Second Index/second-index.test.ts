@@ -15,7 +15,7 @@ const Tests = [
 describe('Second Index using', () => {
   describe('My Solution', () => {
     Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having ${test.symbol}`, () => {
+      it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having '${test.symbol}'`, () => {
         expect(my(test.text, test.symbol)).toBe(test.expected);
       });
     });
@@ -23,7 +23,7 @@ describe('Second Index using', () => {
 
   // describe('Best solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having ${test.symbol}`, () => {
+  //     it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having '${test.symbol}'`, () => {
   //       expect(best(test.text, test.symbol)).toBe(test.expected);
   //     });
   //   });
@@ -31,7 +31,7 @@ describe('Second Index using', () => {
 
   // describe('Creative solution', () => {
   //   Tests.forEach(test => {
-  //     it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having ${test.symbol}`, () => {
+  //     it(`should return '${test.expected}' for '${test.text.length > 48 ? 'very long input' : test.text}' having '${test.symbol}'`, () => {
   //       expect(creative(test.text, test.symbol)).toBe(test.expected);
   //     });
   //   });
