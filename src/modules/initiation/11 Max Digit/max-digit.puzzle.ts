@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Max Digit
  *
@@ -29,8 +31,28 @@ function maxDigit(value: number): number {
   return Math.max(...`${value}`.split('').map(_ => +_));
 }
 
-const best = (value: number): number => [...String(value)].map(Number).sort((a, b) => b - a)[0];
-
-const creative = (value: number) => Math.max(...Array.from(`${value}`).map(Number));
-
-export { maxDigit as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Max Digit',
+  categories: [
+    {
+      name: 'My',
+      fn: maxDigit,
+    },
+    {
+      name: 'Clear',
+      fn(value: number): number { return Math.max(...value.toString().split('').map(_ => +_)); }
+    },
+    {
+      name: 'Creative',
+      fn(value: number): number { return Math.max(...Array.from(`${value}`).map(Number)); }
+    },
+    {
+      name: 'Third Party',
+      fn(value: number): number { return [...String(value)].map(Number).sort((a, b) => b - a)[0]; }
+    },
+    {
+      name: 'My',
+      fn(value: { toString: () => any; }): number { return parseInt([...value.toString()].sort((x, y) => (y - x))[0]); }
+    }
+  ]
+});
