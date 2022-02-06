@@ -24,12 +24,14 @@ export class Tester {
     });
   }
 
-  formatAssertion(assertion: any | any[]): string {
+  formatAssertion(assertion: any | any[]): string | number {
     return Array.isArray(assertion)
       ? assertion.length > 72
         ? `[${assertion.slice(0, 72).join(', ')}...${assertion.slice(-1)[0]}]`
         : `[${assertion.join(', ')}]`
-      : assertion;
+      : (typeof (assertion) === 'number')
+        ? assertion
+        : `'${assertion}'`;
   }
 
   formatArguments(args: Map<string, any | any[]>): string {
