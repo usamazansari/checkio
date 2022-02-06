@@ -39,17 +39,29 @@
  * @returns Product of `a` and `b`
  */
 function multTwo(a: number, b: number): number {
-    return a * b;
+  return a * b;
 }
 
-const best = (a: number, b: number): number => a * b;
+export const Solutions = [
+  {
+    name: 'My',
+    fn: multTwo,
+  },
+  {
+    name: 'Clear',
+    fn(a: number, b: number): number { return a * b; },
+  },
+  {
+    name: 'Creative',
+    fn: (a: number, b: number) => [...'🐱'.repeat(a).replace(/./ug, '🦄'.repeat(b))].length,
+  },
+  {
+    name: 'Third Party',
+    fn(a: number, b: number): number { return a * b; },
+  },
+  {
+    name: 'Uncategorized',
+    fn(a: number, b: number): number { return a * b; },
+  }
+];
 
-const creative = (a: number, b: number): number => [
-    ...'🐱'.repeat(a)
-        .replace(
-            /./ug,
-            '🦄'.repeat(b)
-        )
-].length;
-
-export { multTwo as my, best, creative };
