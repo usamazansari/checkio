@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Acceptable Password I
  *
@@ -38,8 +40,24 @@ function isAcceptablePassword(password: string): boolean {
   return password.length > 6;
 }
 
-const best = (password: string): boolean => password.length > 6;
-
-const creative = (_: string) => !!_[0b110];
-
-export { isAcceptablePassword as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Acceptable Password I',
+  categories: [
+    {
+      name: 'My',
+      fn: isAcceptablePassword
+    },
+    {
+      name: 'Clear',
+      fn: (password: string): boolean => password.length > 6
+    },
+    {
+      name: 'Creative',
+      fn: (_: string) => !!_[0b110]
+    },
+    {
+      name: 'Uncategorized',
+      fn(password: string): boolean { return password.length >= 7; }
+    }
+  ]
+});
