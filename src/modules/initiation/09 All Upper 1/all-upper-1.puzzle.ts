@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # All Upper 1
  *
@@ -31,8 +33,30 @@ function isAllUpper(text: string): boolean {
   return text === text.toUpperCase();
 }
 
-const best = (text: string): boolean => text == text.toUpperCase();
-
-const creative = (text: string): boolean => text == text.toUpperCase();
-
-export { isAllUpper as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'All Upper I',
+  categories: [
+    {
+      name: 'My',
+      fn: isAllUpper,
+    },
+    {
+      name: 'Clear',
+      fn: (text: string): boolean => text == text.toUpperCase(),
+    },
+    {
+      name: 'Creative',
+      fn(text: string): boolean { return text == text.toUpperCase(); },
+    },
+    {
+      name: 'Third Party',
+      fn: (text: string): boolean => { return text === text.toUpperCase(); },
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): boolean {
+        return !Boolean(text.match(/[a-z]/));
+      },
+    }
+  ]
+});

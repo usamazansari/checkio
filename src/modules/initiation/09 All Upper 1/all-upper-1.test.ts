@@ -1,39 +1,64 @@
-import { my, best, creative } from './all-upper-1.puzzle';
+import { Setup, Tester } from '../../../common';
+import { Puzzle } from './all-upper-1.puzzle';
 
-const Tests = [
-  { text: 'ALL UPPER', expected: true },
-  { text: 'all lower', expected: false },
-  { text: 'mixed UPPER and lower', expected: false },
-  { text: '', expected: true },
-  { text: 'Hi', expected: false },
-  { text: '    ', expected: true },
-  { text: 'DIGITS123', expected: true },
-  { text: 'WORLD', expected: true },
-  { text: '→☺☻♥♠♣', expected: true }
-];
-
-describe('All Upper I using', () => {
-  describe('My Solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.text}'`, () => {
-        expect(my(test.text)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Best solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.text}'`, () => {
-        expect(best(test.text)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Creative solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.text}'`, () => {
-        expect(creative(test.text)).toBe(test.expected);
-      });
-    });
-  });
+new Tester({
+  solution: Puzzle,
+  tests: new Setup({
+    tests: [
+      {
+        arguments: [
+          { text: 'ALL UPPER' }
+        ],
+        expected: true
+      },
+      {
+        arguments: [
+          { text: 'all lower' }
+        ],
+        expected: false
+      },
+      {
+        arguments: [
+          { text: 'mixed UPPER and lower' }
+        ],
+        expected: false
+      },
+      {
+        arguments: [
+          { text: '' }
+        ],
+        expected: true
+      },
+      {
+        arguments: [
+          { text: 'Hi' }
+        ],
+        expected: false
+      },
+      {
+        arguments: [
+          { text: '    ' }
+        ],
+        expected: true
+      },
+      {
+        arguments: [
+          { text: 'DIGITS123' }
+        ],
+        expected: true
+      },
+      {
+        arguments: [
+          { text: 'WORLD' }
+        ],
+        expected: true
+      },
+      {
+        arguments: [
+          { text: '→☺☻♥♠♣' }
+        ],
+        expected: true
+      },
+    ]
+  })
 });
