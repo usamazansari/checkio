@@ -15,7 +15,7 @@ export class Setup extends Array {
 
       this.push({
         expected: test.expected,
-        arguments: [..._arguments.values()],
+        arguments: _arguments
       });
     });
   }

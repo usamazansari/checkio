@@ -13,10 +13,10 @@ export class Tester {
       solution.categories.forEach(category => {
         describe(`${category.name} Solution`, () => {
           tests.forEach(test => {
-            it(`should return ${this.formatAssertion(test.expected)} for ${test.arguments.map((_: any) => this.formatAssertion(_)).join(', ')}`, () => {
+            it(`should return ${this.formatAssertion(test.expected)} for ${this.formatArguments(test.arguments)}`, () => {
               deepEquality
-                ? expect(category.fn(...test.arguments)).toStrictEqual(test.expected)
-                : expect(category.fn(...test.arguments)).toBe(test.expected);
+                ? expect(category.fn(...test.arguments.values())).toStrictEqual(test.expected)
+                : expect(category.fn(...test.arguments.values())).toBe(test.expected);
             });
           });
         });
@@ -28,7 +28,17 @@ export class Tester {
     return Array.isArray(assertion)
       ? assertion.length > 72
         ? `[${assertion.slice(0, 72).join(', ')}...${assertion.slice(-1)[0]}]`
-        : assertion
+        : `[${assertion.join(', ')}]`
       : assertion;
+  }
+
+  formatArguments(args: Map<string, any | any[]>): string {
+    let formatted = '';
+    args.forEach((value, key) => {
+      formatted +=
+        `
+          ${key}: ${this.formatAssertion(value)}`;
+    });
+    return formatted;
   }
 }
