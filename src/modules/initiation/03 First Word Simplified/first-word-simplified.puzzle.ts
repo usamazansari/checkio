@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # First Word Simplified
  *
@@ -26,7 +28,7 @@
  * ## Example
  *
  * ```ts
- * firstWord("Hello world") == "Hello"
+ * firstWord('Hello world') == 'Hello'
  * ```
  *
  * ## How it is used
@@ -42,11 +44,28 @@ function firstWord(text: string): string {
   return text.split(' ')[0].trim();
 }
 
-const best = (text: string): string => text.split(' ')[0];
-
-const creative = (s: string): string => s.slice(
-  s.search(/\w/),
-  0o1 + s.search(/\w\b/)
-);
-
-export { firstWord as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'First Word',
+  categories: [
+    {
+      name: 'My',
+      fn: firstWord
+    },
+    {
+      name: 'Clear',
+      fn(text: string): string { return text.split(' ')[0]; }
+    },
+    {
+      name: 'Creative',
+      fn: (s: string): string => s.slice(s.search(/\w/), 0o1 + s.search(/\w\b/))
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): string {
+        return (!(text.indexOf(' ') + 1))
+          ? text
+          : text.substr(0, text.indexOf(' '));
+      }
+    }
+  ]
+});
