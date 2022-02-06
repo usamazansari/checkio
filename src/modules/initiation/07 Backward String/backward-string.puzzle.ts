@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Backward String
  *
@@ -27,8 +29,30 @@ function backwardString(value: string): string {
   return value.split('').reverse().join('');
 }
 
-const best = (value: string): string => value.split('').reverse().join('');
+export const Puzzle: Solution = new Solution({
+  name: 'Backward String',
+  categories: [
+    {
+      name: 'My',
+      fn: backwardString
+    },
+    {
+      name: 'Clear',
+      fn(value: string): string { return value.split('').reverse().join(''); }
 
-const creative = (value: string): string => value.split('').reverse().join('');
+    },
+    {
+      name: 'Creative',
+      fn(value: string): string { return value.split('').reverse().join(''); }
 
-export { backwardString as my, best, creative };
+    },
+    {
+      name: 'Third Party',
+      fn(value: string) { return value.split('').reverse().join(''); }
+    },
+    {
+      name: 'Uncategorized',
+      fn(value: string): string { return [...value].reverse().join(''); }
+    }
+  ]
+});
