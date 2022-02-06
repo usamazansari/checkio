@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Multiply Intro
  *
@@ -42,26 +44,29 @@ function multTwo(a: number, b: number): number {
   return a * b;
 }
 
-export const Solutions = [
-  {
-    name: 'My',
-    fn: multTwo,
-  },
-  {
-    name: 'Clear',
-    fn(a: number, b: number): number { return a * b; },
-  },
-  {
-    name: 'Creative',
-    fn: (a: number, b: number) => [...'🐱'.repeat(a).replace(/./ug, '🦄'.repeat(b))].length,
-  },
-  {
-    name: 'Third Party',
-    fn(a: number, b: number): number { return a * b; },
-  },
-  {
-    name: 'Uncategorized',
-    fn(a: number, b: number): number { return a * b; },
-  }
-];
+export const Puzzle: Solution = new Solution({
+  name: 'Multiply Intro',
+  categories: [
+    {
+      name: 'My',
+      fn: multTwo,
+    },
+    {
+      name: 'Clear',
+      fn(a: number, b: number): number { return a * b; },
+    },
+    {
+      name: 'Creative',
+      fn: (a: number, b: number) => [...'🐱'.repeat(a).replace(/./ug, '🦄'.repeat(b))].length,
+    },
+    {
+      name: 'Third Party',
+      fn: (a: number, b: number): number => a * b
+    },
+    {
+      name: 'Uncategorized',
+      fn: (a: number, b: number): number => a * b
+    }
+  ]
+});
 

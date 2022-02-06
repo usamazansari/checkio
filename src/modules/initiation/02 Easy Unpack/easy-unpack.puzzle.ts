@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Easy Unpack
  *
@@ -40,8 +42,30 @@ function easyUnpack(values: any[]): any[] {
   ];
 }
 
-const best = (values: any[]): any[] => [values[0], values[2], values[values.length - 2]];
-
-const creative = (e: any[], [f, , t] = e) => [f, t, e.reverse()[1]];
-
-export { easyUnpack as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Easy Unpack',
+  categories: [
+    {
+      name: 'My',
+      fn: easyUnpack
+    },
+    {
+      name: 'Clear',
+      fn: (values: any[]): any[] => {
+        return [values[0], values[2], values[values.length - 2]];
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (e: any[], [f, , t] = e) => {
+        return [f, t, e.reverse()[1]];
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(values: any[]): any[] {
+        return [values[0], values[2], values[values.length - 2]];
+      }
+    }
+  ]
+});
