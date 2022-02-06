@@ -1,4 +1,4 @@
-import type { Category } from '..';
+import type { Category } from './category';
 
 export class Solution {
   name: string;
