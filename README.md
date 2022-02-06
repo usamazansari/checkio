@@ -79,15 +79,15 @@ Test using [Jest](https://jestjs.io/)
 
 ### Commit Message Standards
 
-|                       Event | Message                                       |
-| --------------------------: | --------------------------------------------- |
-|             Problem Entered | ➕ `{{ station }}`-#`{{ number }}` added       |
-|              Problem Solved | ✔️ `{{ station }}`-#`{{ number }}` solved      |
-|          Problem not solved | ➖ `{{ station }}`-#`{{ number }}` not solved  |
-|         Problem in progress | 🚧 `{{ station }}`-#`{{ number }}` in progress |
-| Best and Creative Solutions | ✨ `{{ station }}`-#`{{ number }}` solutions   |
-|     Workspace Configuration | ** *varies* **                                |
-|          Update `README.md` | 📝 updated README                              |
+|                   Event | Message                                       |
+| ----------------------: | --------------------------------------------- |
+|         Problem Entered | ➕ `{{ station }}`-#`{{ number }}` added       |
+|          Problem Solved | ✔️ `{{ station }}`-#`{{ number }}` solved      |
+|      Problem not solved | ➖ `{{ station }}`-#`{{ number }}` not solved  |
+|     Problem in progress | 🚧 `{{ station }}`-#`{{ number }}` in progress |
+|           All Solutions | ✨ `{{ station }}`-#`{{ number }}` solutions   |
+| Workspace Configuration | ** *varies* **                                |
+|      Update `README.md` | 📝 updated README                              |
 
 ---
 
