@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Remove All Before
  *
@@ -42,10 +44,33 @@ function removeAllBefore(values: number[], b: number): number[] {
     : values;
 }
 
-const best = (v: number[], b: number) => v.includes(b)
-  ? v.slice(v.indexOf(b))
-  : v;
-
-const creative = (v: number[], b: number) => v.slice(~(b = v.indexOf(b)) && b);
-
-export { removeAllBefore as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Remove All Before',
+  categories: [
+    {
+      name: 'My',
+      fn: removeAllBefore
+    },
+    {
+      name: 'Clear',
+      fn: (v: number[], b: number) => v.includes(b) ? v.slice(v.indexOf(b)) : v
+    },
+    {
+      name: 'Creative',
+      fn: (v: number[], b: number) => v.slice(~(b = v.indexOf(b)) && b)
+    },
+    {
+      name: 'Third Party',
+      fn: (values: number[], b: number) => {
+        if (values.includes(b)) { return values.slice(values.indexOf(b)); }
+        else { return values; }
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(values: number[], b: number): number[] {
+        return values.includes(b) ? values.slice(values.indexOf(b)) : values;
+      }
+    }
+  ]
+});
