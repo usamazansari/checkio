@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Replace First
  *
@@ -29,13 +31,29 @@ function replaceFirst(values: number[]): number[] {
   return values;
 }
 
-const best = (values: number[]): number[] => values.length > 0
-  ? values.slice(1).concat(values[0])
-  : [];
-
-const creative = (values: number[]): number[] => {
-  const [first, ...rest] = values;
-  return first ? [...rest, first] : [];
-};
-
-export { replaceFirst as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Replace First',
+  categories: [
+    {
+      name: 'My',
+      fn: replaceFirst
+    },
+    {
+      name: 'Clear',
+      fn: (values: number[]): number[] => values.length > 0
+        ? values.slice(1).concat(values[0])
+        : []
+    },
+    {
+      name: 'Creative',
+      fn: (values: number[]): number[] => {
+        const [first, ...rest] = values;
+        return first ? [...rest, first] : [];
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(values: number[]): number[] { return values.length ? [...values.slice(1), values[0]] : []; }
+    }
+  ]
+});
