@@ -39,6 +39,5 @@ new Tester(
           }
         ]
       }
-    ),
-    deepEquality: true
+    )
   });
