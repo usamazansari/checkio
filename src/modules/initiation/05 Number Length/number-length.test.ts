@@ -1,37 +1,52 @@
-import { my, best, creative } from './number-length.puzzle';
+import { Setup, Tester } from '../../../common';
+import { Puzzle } from './number-length.puzzle';
 
-const Tests = [
-  { value: 10, expected: 2 },
-  { value: 0, expected: 1 },
-  { value: 4, expected: 1 },
-  { value: 44, expected: 2 },
-  { value: 1567, expected: 4 },
-  { value: 100, expected: 3 },
-  { value: -123456789012390, expected: 15 }
-];
-
-describe('Number Length using', () => {
-  describe('My Solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.value}'`, () => {
-        expect(my(test.value)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Best solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.value}'`, () => {
-        expect(best(test.value)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Creative solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for '${test.value}'`, () => {
-        expect(creative(test.value)).toBe(test.expected);
-      });
-    });
-  });
+new Tester({
+  solution: Puzzle,
+  tests: new Setup({
+    tests: [
+      {
+        arguments: [
+          { value: 10 }
+        ],
+        expected: 2
+      },
+      {
+        arguments: [
+          { value: 0 }
+        ],
+        expected: 1
+      },
+      {
+        arguments: [
+          { value: 4 }
+        ],
+        expected: 1
+      },
+      {
+        arguments: [
+          { value: 44 }
+        ],
+        expected: 2
+      },
+      {
+        arguments: [
+          { value: 1567 }
+        ],
+        expected: 4
+      },
+      {
+        arguments: [
+          { value: 100 }
+        ],
+        expected: 3
+      },
+      {
+        arguments: [
+          { value: -123456789012390 }
+        ],
+        expected: 15
+      }
+    ]
+  })
 });
