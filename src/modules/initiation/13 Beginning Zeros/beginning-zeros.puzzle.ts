@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Beginning Zeros
  * 
@@ -34,7 +36,24 @@ function beginningZeros(text: string): number {
     : text.length;
 }
 
-const best = (t: string): number => t.match(/^0*/)?.filter(_ => !!_)[0].length ?? 0;
-const creative = (text: string): number => (`0${text}`.match(/^0+/)?.filter(_ => !!_)[0].length ?? 1 - 1);
-
-export { beginningZeros as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Beginning Zeros',
+  categories: [
+    {
+      name: 'My',
+      fn: beginningZeros
+    },
+    {
+      name: 'Clear',
+      fn: (t: string): number => t.match(/^0*/)?.filter(_ => !!_)[0].length ?? 0
+    },
+    {
+      name: 'Creative',
+      fn: (text: string): number => ((`0${text}`.match(/^0+/)?.filter(_ => !!_)[0].length ?? 1) - 1)
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): number { return text.length - text.replace(/^0*/, '').length; }
+    }
+  ]
+});
