@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Nearest Value
  * 
@@ -55,15 +57,34 @@ function nearestValue(values: number[], search: number): number {
   return values.includes(search - minDiff) ? search - minDiff : search + minDiff;
 }
 
-const best = (v: number[], s: number): number => v.sort((a, b) => (s - a) ** 2 - (s - b) ** 2 || a - b)[0];
-
-const creative = (
-  L: number[],
-  n: number,
-  N: number[] = [n, ...L].sort((a, b) => a - b),
-  i: number = N.indexOf(n),
-  { [i - 1]: p = -Infinity, [i + 1]: x = Infinity } = N): number => L.includes(n)
-    ? n
-    : (n - p <= x - n ? p : x);
-
-export { nearestValue as my, best, creative };
+export const Puzzle: Solution = new Solution({
+  name: 'Nearest Value',
+  categories: [
+    {
+      name: 'My',
+      fn: nearestValue,
+    },
+    {
+      name: 'Clear',
+      fn: (v: number[], s: number): number => v.sort((a, b) => (s - a) ** 2 - (s - b) ** 2 || a - b)[0]
+    },
+    {
+      name: 'Creative',
+      fn: (
+        L: number[],
+        n: number,
+        N: number[] = [n, ...L].sort((a, b) => a - b),
+        i: number = N.indexOf(n),
+        { [i - 1]: p = -Infinity, [i + 1]: x = Infinity } = N): number => L.includes(n)
+          ? n
+          : (n - p <= x - n ? p : x)
+    },
+    {
+      name: 'Uncategorized',
+      fn(values: number[], one: number): number {
+        let arr = values.sort((x, y) => x - y).map(x => Math.abs(x - one));
+        return values[arr.indexOf(Math.min(...arr))];
+      }
+    }
+  ]
+});
