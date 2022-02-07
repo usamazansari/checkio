@@ -4,7 +4,7 @@ import { Puzzle } from './first-word-simplified.puzzle';
 new Tester(
   {
     solution: Puzzle,
-    tests: new Setup({
+    setup: new Setup({
       tests: [
         {
           arguments: [

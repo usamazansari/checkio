@@ -3,7 +3,7 @@ import { Puzzle } from './backward-string.puzzle';
 
 new Tester({
   solution: Puzzle,
-  tests: new Setup({
+  setup: new Setup({
     tests: [
       {
         arguments: [

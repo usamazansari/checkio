@@ -4,9 +4,9 @@ export class Tester {
   constructor(
     {
       solution = new Solution({}),
-      tests = new Setup({}),
+      setup: tests = new Setup({}),
     }:
-      Partial<{ solution: Solution; tests: Setup; }>
+      Partial<{ solution: Solution; setup: Setup; }>
   ) {
     const deepEquality = typeof (tests[0].expected) === 'object';
     describe(`${solution.name} using`, () => {
