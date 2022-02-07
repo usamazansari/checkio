@@ -1,1 +1,1 @@
-export { Setup, Tester, Solution } from './models';
+export { Setup, Tester, Solution } from './utils';
