@@ -13,7 +13,8 @@ export class Tester {
       solution.categories.forEach(category => {
         describe(`${category.name} Solution`, () => {
           tests.forEach(test => {
-            it(`should return ${this.formatAssertion(test.expected)} for ${this.formatArguments(test.arguments)}`, () => {
+            it(`should return ${this.formatAssertion(test.expected)} for ${this.formatArguments(test.arguments)} 
+            ⏲️ `, () => {
               deepEquality
                 ? expect(category.fn(...test.arguments.values())).toStrictEqual(test.expected)
                 : expect(category.fn(...test.arguments.values())).toBe(test.expected);
