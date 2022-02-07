@@ -33,7 +33,7 @@ function isAllUpper(text: string): boolean {
   return text === text.toUpperCase();
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'All Upper I',
   categories: [
     {

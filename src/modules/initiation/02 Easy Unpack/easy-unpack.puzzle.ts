@@ -42,7 +42,7 @@ function easyUnpack(values: any[]): any[] {
   ];
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Easy Unpack',
   categories: [
     {

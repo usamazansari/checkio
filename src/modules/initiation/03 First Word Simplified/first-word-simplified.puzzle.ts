@@ -44,7 +44,7 @@ function firstWord(text: string): string {
   return text.split(' ')[0].trim();
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'First Word',
   categories: [
     {

@@ -36,7 +36,7 @@ function beginningZeros(text: string): number {
     : text.length;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Beginning Zeros',
   categories: [
     {

@@ -40,7 +40,7 @@ function isAcceptablePassword(password: string): boolean {
   return password.length > 6;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Acceptable Password I',
   categories: [
     {

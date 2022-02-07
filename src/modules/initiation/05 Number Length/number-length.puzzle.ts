@@ -29,7 +29,7 @@ function numberLength(value: number): number {
   return `${Math.abs(value)}`.length;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Number Length',
   categories: [
     {

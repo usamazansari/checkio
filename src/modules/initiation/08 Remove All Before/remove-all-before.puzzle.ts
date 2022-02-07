@@ -44,7 +44,7 @@ function removeAllBefore(values: number[], b: number): number[] {
     : values;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Remove All Before',
   categories: [
     {

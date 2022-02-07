@@ -32,7 +32,7 @@ function endZeros(value: number): number {
   return value.toString().match(/0*$/g)?.join('').length ?? 0;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'End Zeros',
   categories: [
     {

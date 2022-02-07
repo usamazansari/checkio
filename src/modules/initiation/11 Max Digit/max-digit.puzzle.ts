@@ -31,7 +31,7 @@ function maxDigit(value: number): number {
   return Math.max(...`${value}`.split('').map(_ => +_));
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Max Digit',
   categories: [
     {

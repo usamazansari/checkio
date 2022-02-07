@@ -29,7 +29,7 @@ function backwardString(value: string): string {
   return value.split('').reverse().join('');
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Backward String',
   categories: [
     {

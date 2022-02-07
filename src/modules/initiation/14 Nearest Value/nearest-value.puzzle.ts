@@ -57,7 +57,7 @@ function nearestValue(values: number[], search: number): number {
   return values.includes(search - minDiff) ? search - minDiff : search + minDiff;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Nearest Value',
   categories: [
     {

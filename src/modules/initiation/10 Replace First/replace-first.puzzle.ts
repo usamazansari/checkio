@@ -31,7 +31,7 @@ function replaceFirst(values: number[]): number[] {
   return values;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Replace First',
   categories: [
     {

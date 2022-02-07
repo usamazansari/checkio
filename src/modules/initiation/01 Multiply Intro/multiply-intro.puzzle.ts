@@ -44,7 +44,7 @@ function multTwo(a: number, b: number): number {
   return a * b;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Multiply Intro',
   categories: [
     {

@@ -42,7 +42,7 @@ function splitPairs(text: string): string[] {
   return output;
 }
 
-export const Puzzle: Solution = new Solution({
+export const Puzzle = new Solution({
   name: 'Split Pairs',
   categories: [
     {
