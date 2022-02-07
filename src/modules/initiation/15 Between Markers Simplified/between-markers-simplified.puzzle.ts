@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Between Markers Simplified
  * 
@@ -47,8 +49,26 @@ function betweenMarkers(line: string, left: string, right: string): string {
   return (line.split(left)[1] || '').split(right)[0] || '';
 }
 
-const best = (line: string, left: string, right: string): string => line.substring(line.indexOf(left) + 1, line.indexOf(right));
-
-const creative = (t: string, l: string, r: string): string => t.match(`\\${l}(.*?)\\${r}`)?.filter(_ => !!_)[1] ?? '';
-
-export { betweenMarkers as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Between Markers',
+  categories: [
+    {
+      name: 'My',
+      fn: betweenMarkers
+    },
+    {
+      name: 'Clear',
+      fn: (line: string, left: string, right: string): string => line.substring(line.indexOf(left) + 1, line.indexOf(right))
+    },
+    {
+      name: 'Creative',
+      fn: (t: string, l: string, r: string): string => t.match(`\\${l}(.*?)\\${r}`)?.filter(_ => !!_)[1] ?? ''
+    },
+    {
+      name: 'Uncategorized',
+      fn(line: string, left: string, right: string): string {
+        return line.slice(line.indexOf(left) + 1, line.indexOf(right));
+      }
+    }
+  ]
+});

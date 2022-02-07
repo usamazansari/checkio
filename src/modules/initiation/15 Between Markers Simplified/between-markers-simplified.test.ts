@@ -1,4 +1,5 @@
-import { my, best, creative } from './between-markers-simplified.puzzle';
+import { Setup, Tester } from '../../../common';
+import { Puzzle } from './between-markers-simplified.puzzle';
 
 const Tests = [
   { line: 'What is >apple<', left: '>', right: '<', expected: 'apple' },
@@ -8,28 +9,50 @@ const Tests = [
   { line: '>Apple< is simple', left: '>', right: '<', expected: 'Apple' }
 ];
 
-describe('Between Markers Simplified using', () => {
-  describe('My Solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
-        expect(my(test.line, test.left, test.right)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Best solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
-        expect(best(test.line, test.left, test.right)).toBe(test.expected);
-      });
-    });
-  });
-
-  describe('Creative solution', () => {
-    Tests.forEach(test => {
-      it(`should return '${test.expected}' for searching between '${test.left}' and '${test.right}' in '${test.line}'`, () => {
-        expect(creative(test.line, test.left, test.right)).toBe(test.expected);
-      });
-    });
-  });
+new Tester({
+  solution: Puzzle,
+  setup: new Setup({
+    tests: [
+      {
+        arguments: [
+          { line: 'What is >apple<' },
+          { left: '>' },
+          { right: '<' }
+        ],
+        expected: 'apple'
+      },
+      {
+        arguments: [
+          { line: 'What is [apple]' },
+          { left: '[' },
+          { right: ']' }
+        ],
+        expected: 'apple'
+      },
+      {
+        arguments: [
+          { line: 'What is ><' },
+          { left: '>' },
+          { right: '<' }
+        ],
+        expected: ''
+      },
+      {
+        arguments: [
+          { line: '[an apple]' },
+          { left: '[' },
+          { right: ']' }
+        ],
+        expected: 'an apple'
+      },
+      {
+        arguments: [
+          { line: '>Apple< is simple' },
+          { left: '>' },
+          { right: '<' }
+        ],
+        expected: 'Apple'
+      }
+    ]
+  })
 });
