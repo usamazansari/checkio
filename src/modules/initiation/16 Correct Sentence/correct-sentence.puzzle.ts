@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Correct Sentence
  * 
@@ -19,9 +21,9 @@
  * 
  * ## Example
  * ```ts
- * correctSentence("greetings, friends") == "Greetings, friends.";
- * correctSentence("Greetings, friends") == "Greetings, friends.";
- * correctSentence("Greetings, friends.") == "Greetings, friends.";
+ * correctSentence('greetings, friends') == 'Greetings, friends.';
+ * correctSentence('Greetings, friends') == 'Greetings, friends.';
+ * correctSentence('Greetings, friends.') == 'Greetings, friends.';
  * ```
  * 
  * ## Precondition
@@ -42,15 +44,40 @@ function correctSentence(text: string): string {
     : rectified;
 }
 
-const best = (text: string): string => text
-  .replace(/^./, x => x.toUpperCase())
-  .replace(/\.$/, '')
-  + '.';
-
-const creative = (
-  t: string,
-  f = t[0],
-  e = t.endsWith('.') ? '' : '.'
-): string => f.toUpperCase() + t.substr(1) + e;
-
-export { correctSentence as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Correct Sentence',
+  categories: [
+    {
+      name: 'My',
+      fn: correctSentence,
+    },
+    {
+      name: 'Clear',
+      fn(text: string): string {
+        return text
+          .replace(/^./, x => x.toUpperCase())
+          .replace(/\.$/, '')
+          + '.';
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (t: string, f = t[0], e = t.endsWith('.') ? '' : '.'): string => f.toUpperCase() + t.substr(1) + e
+    },
+    {
+      name: 'Third Party',
+      fn(text: string): string {
+        var txt = text[0].toUpperCase() + text.slice(1);
+        return (text[text.length - 1] == '.')
+          ? txt
+          : txt + '.';
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): string {
+        return text[0].toUpperCase() + text.slice(1).replace('.', '') + '.';
+      }
+    }
+  ]
+});
