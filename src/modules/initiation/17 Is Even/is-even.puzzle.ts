@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Is Even
  * 
@@ -34,8 +36,26 @@ function isEven(num: number): boolean {
   return !(num % 2);
 }
 
-const best = (num: number): boolean => !(num % 2);
-
-const creative = (x: number) => !!(x & 1 ^ 1);
-
-export { isEven as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Is Even',
+  categories: [
+    {
+      name: 'My',
+      fn: isEven,
+    },
+    {
+      name: 'Clear',
+      fn: (num: number): boolean => !(num % 2)
+    },
+    {
+      name: 'Creative',
+      fn: (x: number) => !!(x & 1 ^ 1)
+    },
+    {
+      name: 'Uncategorized',
+      fn(num: number): boolean {
+        return !(num % 2);
+      }
+    }
+  ]
+});
