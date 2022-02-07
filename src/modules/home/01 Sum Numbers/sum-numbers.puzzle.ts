@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Sum Numbers
  * 
@@ -38,10 +40,44 @@ function sumNumbers(test: string): number {
     .reduce((acc, _) => { acc += _; return acc; }, 0) ?? 0;
 }
 
-const best = (text: string): number => text.split(' ').reduce((a, w) => /^[0-9]+$/.test(w)
-  ? a + +w
-  : a, 0);
-
-const creative = (a: string) => a.split(/ /).reduce((a, b) => a + ~~+b, 0);
-
-export { sumNumbers as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Sum Numbers',
+  categories: [
+    {
+      name: 'My',
+      fn: sumNumbers,
+    },
+    {
+      name: 'Clear',
+      fn(text: string): number {
+        return text
+          .split(' ')
+          .reduce((a, w) => /^[0-9]+$/.test(w)
+            ? a + +w
+            : a, 0);
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (a: string) => a.split(/ /).reduce((a, b) => a + ~~+b, 0)
+    },
+    {
+      name: 'Third Party',
+      fn(test: string): number {
+        var count = 0;
+        for (let word of test.split(' ')) { if (!isNaN(+word)) { count += Number(word); } }
+        return count;
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(test: string): number {
+        var sum = 0;
+        var arr = test.match(/\b\d+\b/g);
+        if (arr)
+          for (let i of arr) sum += Number(i);
+        return sum;
+      }
+    }
+  ]
+});
