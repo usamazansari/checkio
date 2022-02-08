@@ -69,9 +69,32 @@ export const Puzzle = new Solution({
       name: 'My',
       fn: popularWords
     },
-    // {
-    //   name: 'Clear',
-    //   fn
-    // }
+    {
+      name: 'Clear',
+      fn: (text: string, words: string[]) => words
+        .reduce((r: any, w: string) => {
+          r[w] = (text.match(new RegExp("\\b" + w + "\\b", "gmi")) || []).length;
+          return r;
+        }, {})
+    },
+    {
+      name: 'Creative',
+      fn(text: string, words: string[]) {
+        return words
+          .reduce((acc, word) => ({
+            ...acc,
+            [word]: text.match(new RegExp(`\\b${word}\\b`, 'gi'))?.length || 0
+          }), {});
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string, words: string[]) {
+        let pw: any = {};
+        for (let w of words)
+          pw[w] = text.split(/\s/g).filter(x => x.match(RegExp('^' + w + '$', 'gi'))).length;
+        return pw;
+      }
+    }
   ]
 });
