@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # First Word
  * 
@@ -45,8 +47,24 @@ function firstWord(text: string): string {
   return text.match(/[A-Za-z\']*/g)?.filter(_ => !!_)[0] ?? '';
 }
 
-const best = (text: string): string => text.match(/[A-Za-z']+/)?.filter(_ => !!_)[0] ?? '';
-
-const creative = (text: string): string => text.match(/[^ .,]+/)?.filter(_ => !!_)[0] ?? '';
-
-export { firstWord as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'First Word',
+  categories: [
+    {
+      name: 'My',
+      fn: firstWord
+    },
+    {
+      name: 'Clear',
+      fn(text: string): string { return text.match(/[A-Za-z']+/)?.filter(_ => !!_)[0] ?? ''; }
+    },
+    {
+      name: 'Creative',
+      fn(text: string): string { return text.match(/[^ .,]+/)?.filter(_ => !!_)[0] ?? ''; }
+    },
+    {
+      name: 'Uncategorized',
+      fn: (text: string): string => text.match(/[\w\']+/g)?.filter(_ => !!_)[0] ?? ''
+    }
+  ]
+});
