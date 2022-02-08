@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Count Digits
  * 
@@ -31,8 +33,24 @@ function countDigits(text: string): number {
   return text.match(/\d/g)?.filter(_ => !!_).length ?? 0;
 }
 
-const best = (text: string): number => [...text].filter(c => /[0-9]/.test(c)).length;
-
-const creative = (text: string): number => [...text].filter(e => !isNaN(parseInt(e))).length;
-
-export { countDigits as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Count Digits',
+  categories: [
+    {
+      name: 'My',
+      fn: countDigits
+    },
+    {
+      name: 'Clear',
+      fn(text: string): number { return [...text].filter(c => /[0-9]/.test(c)).length; }
+    },
+    {
+      name: 'Creative',
+      fn(text: string): number { return [...text].filter(e => !isNaN(parseInt(e))).length; }
+    },
+    {
+      name: 'Uncategorized',
+      fn: (text: string) => text.match(/\d/g) ? text.match(/\d/g)?.filter(_ => !!_).length : 0
+    }
+  ]
+});
