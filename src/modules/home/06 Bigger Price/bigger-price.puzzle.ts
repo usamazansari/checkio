@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * Stock interface
  *
@@ -52,11 +54,27 @@ function biggerPrice(limit: number, data: Stock[]): Stock[] {
   return data.sort((a, b) => b.price - a.price).slice(0, limit);
 }
 
-const best = (limit: number, data: Stock[]): Stock[] => data.sort((x, y) => y.price - x.price).slice(0, limit);
-
-const creative = (limit: number, data: Stock[]): Stock[] => {
-  data.sort((a, b) => a['price'] - b['price']);
-  return data.reverse().slice(0, limit);
-};
-
-export { biggerPrice as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Bigger Price',
+  categories: [
+    {
+      name: 'My',
+      fn: biggerPrice
+    },
+    {
+      name: 'Clear',
+      fn(limit: number, data: Stock[]): Stock[] { return data.sort((x, y) => y.price - x.price).slice(0, limit); }
+    },
+    {
+      name: 'Creative',
+      fn(limit: number, data: Stock[]): Stock[] {
+        data.sort((a, b) => a['price'] - b['price']);
+        return data.reverse().slice(0, limit);
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn: (limit: number, data: Stock[]): Stock[] => data.sort((a, b) => b.price - a.price).slice(0, limit)
+    }
+  ]
+});
