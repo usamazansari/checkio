@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Popular Words
  * 
@@ -60,15 +62,16 @@ function popularWords(text: string, words: string[]): { [key: string]: number; }
   return output;
 }
 
-const best = (text: string, words: string[]): { [key: string]: number; } => words
-  .reduce((r: { [key: string]: number; }, w: string) => {
-    r[w] = (text.match(new RegExp("\\b" + w + "\\b", "gmi")) || []).length;
-    return r;
-  }, {});
-
-const creative = (text: string, words: string[]): { [key: string]: number; } => words
-  .reduce((acc, word) =>
-    ({ ...acc, [word]: text.match(new RegExp(`\\b${word}\\b`, 'gi'))?.length || 0 }),
-    {});
-
-export { popularWords as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Popular Words',
+  categories: [
+    {
+      name: 'My',
+      fn: popularWords
+    },
+    // {
+    //   name: 'Clear',
+    //   fn
+    // }
+  ]
+});
