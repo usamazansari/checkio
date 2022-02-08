@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Backward Each Word
  * 
@@ -36,8 +38,24 @@ function backwardStringByWord(text: string): string {
     .join(' ');
 }
 
-const best = (t: string): string => t.replace(/\w+/g, w => [...w].reverse().join(''));
-
-const creative = (text: string): string => text.split(' ').map(palavra => [...palavra].reverse().join('')).join(' ');
-
-export { backwardStringByWord as my, best, creative };
+export const Puzzle = new Solution({
+  name: 'Backward Each Word',
+  categories: [
+    {
+      name: 'My',
+      fn: backwardStringByWord
+    },
+    {
+      name: 'Clear',
+      fn: (t: string): string => t.replace(/\w+/g, w => [...w].reverse().join(''))
+    },
+    {
+      name: 'Creative',
+      fn(text: string): string { return text.split(' ').map(palavra => [...palavra].reverse().join('')).join(' '); }
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): string { return text.split(' ').map(x => x.split('').reverse().join('')).join(' '); }
+    }
+  ]
+});
