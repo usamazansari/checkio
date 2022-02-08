@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Non Unique Elements
  * 
@@ -62,8 +64,29 @@ function nonUniqueElements(data: number[]): number[] {
   }, []);
 }
 
-const best = (data: number[]): number[] => data.filter((x: number) => data.lastIndexOf(x) !== data.indexOf(x));
+export const Puzzle = new Solution({
+  name: 'Non Unique Elements',
+  categories: [
+    {
+      name: 'My',
+      fn: nonUniqueElements
+    },
+    {
+      name: 'Clear',
+      fn: (data: number[]): number[] => (data.filter((x: number) => data.lastIndexOf(x) != data.indexOf(x)))
+    },
+    {
+      name: 'Creative',
+      fn(data: number[]): number[] { return data.filter(x => data.indexOf(x) != data.lastIndexOf(x)); }
 
-const creative = (data: number[]): number[] => data.filter(x => data.indexOf(x) !== data.lastIndexOf(x));
-
-export { nonUniqueElements as my, best, creative };
+    },
+    {
+      name: 'Third Party',
+      fn(data: number[]): number[] { return data.filter((e, i, arr) => arr.indexOf(e) !== arr.lastIndexOf(e)); }
+    },
+    {
+      name: 'Uncategorized',
+      fn(data: number[]): number[] { return data.filter(x => data.lastIndexOf(x) > data.indexOf(x)); }
+    }
+  ]
+});
