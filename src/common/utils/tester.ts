@@ -34,6 +34,16 @@ export class Tester {
   }
 
   private formatAssertion(assertion: any | any[]): string | number {
+    return (assertion === null || assertion === undefined) // only null and undefined are allowed, not zeros and empty strings.
+      ? this.formatForNullUndefined(assertion)
+      : this.formatForGoods(assertion);
+  }
+
+  formatForNullUndefined(assertion: null | undefined): string | number {
+    return `'${assertion}'`;
+  }
+
+  private formatForGoods(assertion: any): string | number {
     return (Array.isArray(assertion))
       ? this.formatForArray(assertion)
       : this.formatForNonArray(assertion);
