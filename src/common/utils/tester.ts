@@ -28,7 +28,7 @@ export class Tester {
   formatAssertion(assertion: any | any[]): string | number {
     return Array.isArray(assertion)
       ? assertion.length > 72
-        ? `[${assertion.slice(0, 72).join(', ')}...${assertion.slice(-1)[0]}]`
+        ? `[${assertion.slice(0, 24).join(', ')}...${assertion.slice(-1)[0]}]`
         : `[${assertion.join(', ')}]`
       : (typeof (assertion) === 'number')
         ? assertion
