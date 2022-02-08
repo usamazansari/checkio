@@ -39,7 +39,7 @@ export class Tester {
       : this.formatForGoods(assertion);
   }
 
-  formatForNullUndefined(assertion: null | undefined): string | number {
+  private formatForNullUndefined(assertion: null | undefined): string | number {
     return `'${assertion}'`;
   }
 
