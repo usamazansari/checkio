@@ -1,18 +1,26 @@
 import { Solution, Setup } from '..';
 
 export class Tester {
+  #solution: Solution = new Solution({});
+  #setup: Setup = new Setup({});
+
   constructor(
     {
       solution = new Solution({}),
-      setup: tests = new Setup({}),
+      setup = new Setup({}),
     }:
       Partial<{ solution: Solution; setup: Setup; }>
   ) {
-    const deepEquality = typeof (tests[0].expected) === 'object';
-    describe(`${solution.name} using`, () => {
-      solution.categories.forEach(category => {
+    this.#solution = solution;
+    this.#setup = setup;
+  }
+
+  public run() {
+    const deepEquality = typeof (this.#setup[0].expected) === 'object';
+    describe(`${this.#solution.name} using`, () => {
+      this.#solution.categories.forEach(category => {
         describe(`${category.name} Solution`, () => {
-          tests.forEach(test => {
+          this.#setup.forEach(test => {
             it(`should return ${this.formatAssertion(test.expected)} for ${this.formatArguments(test.arguments)} 
             ⏲️ `, () => {
               deepEquality
@@ -25,17 +33,46 @@ export class Tester {
     });
   }
 
-  formatAssertion(assertion: any | any[]): string | number {
-    return Array.isArray(assertion)
-      ? assertion.length > 72
-        ? `[${assertion.slice(0, 24).join(', ')}...${assertion.slice(-1)[0]}]`
-        : `[${assertion.join(', ')}]`
-      : (typeof (assertion) === 'number')
-        ? assertion
+  private formatAssertion(assertion: any | any[]): string | number {
+    return (Array.isArray(assertion))
+      ? this.formatForArray(assertion)
+      : this.formatForNonArray(assertion);
+  }
+
+  private formatForNonArray(assertion: any): string | number {
+    return (typeof (assertion) === 'object')
+      ? this.shortenObject(assertion)
+      : this.formatForPrimitives(assertion);
+  }
+
+  private formatForPrimitives(assertion: string | number): string | number {
+    return ((typeof (assertion) === 'number'))
+      ? assertion
+      : (assertion.length > 72)
+        ? this.shortenString(assertion)
         : `'${assertion}'`;
   }
 
-  formatArguments(args: Map<string, any | any[]>): string {
+  private formatForArray(assertion: any[]): string | number {
+    return (assertion.length > 72)
+      ? this.shortenString(assertion)
+      : `[${assertion.join(', ')}]`;
+  }
+
+  private shortenObject(assertion: any): string {
+    const stringified = JSON.stringify(assertion);
+    return stringified.length > 72
+      ? `${this.shortenString(assertion)}`
+      : stringified;
+  }
+
+  private shortenString(assertion: string | any[]): string | number {
+    return (Array.isArray(assertion))
+      ? `[${assertion.slice(0, 24).join(', ')}...${assertion.slice(-1)[0]}]`
+      : `${assertion.replace(/\r\n|\n|\r/g, ' ').slice(0, 24)}...${assertion.slice(-1)[0]}`;
+  }
+
+  private formatArguments(args: Map<string, any | any[]>): string {
     let formatted = '';
     args.forEach((value, key) => {
       formatted +=
