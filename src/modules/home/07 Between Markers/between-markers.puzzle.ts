@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Between Markers
  * 
@@ -61,16 +63,37 @@ function betweenMarkers(text: string, begin: string, end: string): string {
   return text;
 }
 
-const best = (text: string, begin: string, end: string): string => {
-  const p1 = text.includes(begin) ? text.indexOf(begin) + begin.length : 0;
-  const p2 = text.includes(end) ? text.indexOf(end) : text.length;
-  return text.slice(p1, p2);
-};
+export const Puzzle = new Solution({
+  name: 'Between Markers',
+  categories: [
+    {
+      name: 'My',
+      fn: betweenMarkers
+    },
+    {
+      name: 'Clear',
+      fn(text: string, begin: string, end: string): string {
+        const p1 = text.includes(begin) ? text.indexOf(begin) + begin.length : 0;
+        const p2 = text.includes(end) ? text.indexOf(end) : text.length;
+        return text.slice(p1, p2);
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (a: string, b: string, c: string): string => ([a, c] = a.split(c), c?.includes(b) ? '' : a.split(b)[1] || a)
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string, begin: string, end: string): string {
+        return (-1 < text.indexOf(end) && text.indexOf(end) < text.indexOf(begin))
+          ? ''
+          : text.split(begin)[text.split(begin).length - 1].split(end)[0];
+      }
 
-const creative = (a: string, b: string, c: string) => (
-  [a, c] = a.split(c), c?.includes(b)
-    ? ''
-    : a.split(b)[1] || a
-);
-
-export { betweenMarkers as my, best, creative };
+    },
+    {
+      name: 'Github Copilot',
+      fn: (t: string, b: string, e: string): string => t.slice(t.indexOf(b) + b.length, t.indexOf(e))
+    },
+  ]
+});
