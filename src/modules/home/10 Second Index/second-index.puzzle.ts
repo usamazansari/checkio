@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Second Index
  * 
@@ -43,4 +45,36 @@ function secondIndex(text: string, symbol: string): number | undefined {
     : undefined;
 }
 
-export { secondIndex as my }; 
+export const Puzzle = new Solution({
+  name: 'Second Index',
+  categories: [
+    {
+      name: 'My',
+      fn: secondIndex
+    },
+    {
+      name: 'Clear',
+      fn(text: string, symbol: string): number | undefined {
+        const p1 = text.indexOf(symbol);
+        if (p1 < 0) return undefined;
+        const p2 = text.indexOf(symbol, p1 + 1);
+        return p2 < 0 ? undefined : p2;
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (t: string, s: string): number | undefined => ([...t.matchAll(new RegExp(s)), 0, 0][1] as RegExpMatchArray).index
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string, symbol: string): number | undefined {
+        var [x, n] = [0, 0];
+        if (text.indexOf(symbol) >= 0 && text.indexOf(symbol) < text.length - 1) {
+          n = text.indexOf(symbol) + 1;
+          x = text.slice(n).indexOf(symbol);
+        }
+        return x >= 0 ? x + n : undefined;
+      }
+    }
+  ]
+});
