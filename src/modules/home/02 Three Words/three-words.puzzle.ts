@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Three Words
  * 
@@ -49,3 +51,25 @@ const best = (text: string): boolean => /\b[a-z]+ [a-z]+ [a-z]+/i.test(text);
 const creative = (_: string): boolean => /(?:[A-Za-z]+\b\s?){3}/.test(_);
 
 export { threeWords as my, best, creative };
+
+export const Puzzle = new Solution({
+  name: 'Three Words',
+  categories: [
+    {
+      name: 'My',
+      fn: threeWords
+    },
+    {
+      name: 'Clear',
+      fn(text: string): boolean { return /\b[a-z]+ [a-z]+ [a-z]+/i.test(text); }
+    },
+    {
+      name: 'Creative',
+      fn: (_: string): boolean => /(?:[A-Za-z]+\b\s?){3}/.test(_)
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): boolean { return /(\b[^\d\s]+(\s|\b)){3}/.test(text); }
+    }
+  ]
+});
