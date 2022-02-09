@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # Split List
  * 
@@ -32,4 +34,34 @@ function splitList(values: number[]): number[][] {
   return [values.slice(0, first), values.slice(first,)];
 }
 
-export { splitList as my };
+export const Puzzle = new Solution({
+  name: 'Split List',
+  categories: [
+    {
+      name: 'My',
+      fn: splitList
+    },
+    {
+      name: 'Clear',
+      fn(v: number[]): number[][] { return [v.splice(0, Math.ceil(v.length / 2)), v]; }
+    },
+    {
+      name: 'Creative',
+      fn: (a: number[]): number[][] => [a.splice(0, a.length + 1 >> 1), a]
+    },
+    {
+      name: 'Third Party',
+      fn(values: number[]): number[][] {
+        var splitter = Math.ceil(values.length / 2);
+        return [values.slice(0, splitter), values.slice(splitter)];
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(items: number[]): number[][] {
+        let idx = Math.trunc(items.length / 2) + items.length % 2;
+        return [items.slice(0, idx), items.slice(idx)];
+      }
+    }
+  ]
+});
