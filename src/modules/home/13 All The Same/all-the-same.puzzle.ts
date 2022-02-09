@@ -1,3 +1,5 @@
+import { Solution } from '../../../common';
+
 /**
  * # All The Same
  * 
@@ -27,4 +29,30 @@ function allTheSame(elements: any[]): boolean {
   return elements.every(_ => _ === elements[0]);
 }
 
-export { allTheSame as my };
+export const Puzzle = new Solution({
+  name: 'All the Same',
+  categories: [
+    {
+      name: 'My',
+      fn: allTheSame
+    },
+    {
+      name: 'Clear',
+      fn(elements: any[]): boolean { return elements.every(e => e == elements[0]); }
+    },
+    {
+      name: 'Creative',
+      fn(elements: any[]): boolean {
+        let resSet = new Set();
+        for (let i = 0; i < elements.length; i++) {
+          resSet.add(elements[i].toString().charCodeAt(0));
+        }
+        return resSet.size === 1 || resSet.size === 0;
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn: (elements: any[]): boolean => new Set(elements).size <= 1
+    }
+  ]
+});
