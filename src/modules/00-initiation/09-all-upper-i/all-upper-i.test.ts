@@ -1,5 +1,5 @@
 import { Setup, Tester } from '../../../common';
-import { Puzzle } from './all-upper-1.puzzle';
+import { Puzzle } from './all-upper-i.puzzle';
 
 new Tester({
   solution: Puzzle,
