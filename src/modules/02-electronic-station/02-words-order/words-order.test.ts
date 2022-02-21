@@ -106,10 +106,17 @@ new Tester({
       {
         arguments: [
           { text: 'london in the capital of great britain' },
-          { words: ['London', 'of', 'great'] }
+          { words: ['london', 'of', 'great'] }
         ],
         expected: true
       },
+      {
+        arguments: [
+          { text: 'london in the capital of great britain' },
+          { words: ['britain', 'great'] }
+        ],
+        expected: false
+      }
     ]
   })
 }).run();

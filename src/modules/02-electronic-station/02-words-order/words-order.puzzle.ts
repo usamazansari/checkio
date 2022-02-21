@@ -70,6 +70,33 @@ export const Puzzle = new Solution({
       fn: wordsOrder
     },
     {
+      name: 'Best',
+      fn: (t: string, a: string[]): boolean => a
+        .every((v: string, i: number) =>
+          t.split(' ').includes(v)
+          && t.split(v)[1].includes(a[i + 1]
+            || ''))
+    },
+    {
+      name: 'Creative',
+      fn(text: string, words: string[]): boolean {
+        return (words.length === new Set(words).size)
+          && RegExp(`\\b${words.join('\\b.*\\b')}\\b`).test(text);
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string, words: string[]): boolean {
+        let t = text.split(' ');
+        if (words.length != new Set(words).size || t.length < words.length) return false;
+        for (let i of words) {
+          if (t.indexOf(i) == -1) return false;
+          t = t.slice(t.indexOf(i) + 1);
+        }
+        return true;
+      }
+    },
+    {
       name: 'Github Copilot',
       fn(text: string, words: string[]): boolean {
         let textArray = text.split(' ');
