@@ -42,6 +42,55 @@ export const Puzzle = new Solution({
     {
       name: 'My',
       fn: isAllUpper
+    },
+    {
+      name: 'Best',
+      fn(text: string): boolean {
+        return /^(?=[A-Z])[^a-z]*$/.test(text);
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (s: string): boolean => /^[A-Z][A-Z\d\s]+$/.test(s)
+    },
+    {
+      name: 'Third Party',
+      fn(text: string): boolean {
+
+        if (text === '') return false;
+        let spaceFlag = true;
+
+        for (let i = 0; i < text.length; i++) {
+          let asciiCode = text.charCodeAt(i);
+
+          if (asciiCode === 32) {
+            continue;
+          }
+          if (asciiCode >= 48 && asciiCode <= 57) {
+            continue;
+          }
+          if (!(asciiCode <= 90 && asciiCode >= 65)) {
+            return false;
+          }
+
+          if (text[i] != ' ') {
+            spaceFlag = false;
+          }
+        }
+
+        if (spaceFlag === true) {
+          return false;
+        }
+        return true;
+      }
+
+    },
+    {
+      name: 'Uncategorized',
+      fn(text: string): boolean {
+        return text.toUpperCase() == text
+          && text.replace(/[^a-zA-Z]/g, '').length > 0;
+      }
     }
   ]
 });
