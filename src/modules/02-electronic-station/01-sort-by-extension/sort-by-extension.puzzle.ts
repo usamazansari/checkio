@@ -77,6 +77,67 @@ export const Puzzle = new Solution({
     {
       name: 'My',
       fn: sortByExt
-    }
+    },
+    {
+      name: 'Best',
+      fn(a: string[]): string[] {
+        const ext = (a: string): string => a.match(/^(\.\w+|\w+\.)$/)?.filter(Boolean)
+          ? ''
+          : a.split('.').pop() ?? '';
+        const sortByExt = (a: string[]): string[] => a.sort((x, y) => ext(x).localeCompare(ext(y)));
+        return sortByExt(a);
+      }
+    },
+    {
+      name: 'Creative',
+      fn(files: string[]): string[] {
+        return [
+          ...files
+            .filter(x => x.lastIndexOf('.') == 0)
+            .map(x => x.split('.')
+              .reverse()
+              .join('.'))
+            .sort()
+            .map(x => x.split('.')
+              .reverse()
+              .join('.')),
+          ...files
+            .filter(x => x.lastIndexOf('.') != 0)
+            .map(x => x.split('.')
+              .reverse()
+              .join('.'))
+            .sort()
+            .map(x => x.split('.')
+              .reverse()
+              .join('.'))
+        ];
+      }
+    },
+    {
+      name: 'Uncategorized',
+      fn(files: string[]): string[] {
+        let arr = [];
+        for (let x of files) {
+          let a = x.split(/[\.]/g).filter((i: string) => i.length > 0);
+          let b = '';
+          if (a.length >= 2 && !x.endsWith('.'))
+            b = a[a.length - 1];
+          arr.push([b, x.replace(b, '')]);
+        }
+        return arr.sort().map(x => x[1].concat(x[0]));
+      }
+    },
+    {
+      name: 'GitHub Copilot',
+      fn(a: string[]): string[] {
+        return a.sort((a, b) => {
+          const aExt = a.split('.').pop() ?? '';
+          const bExt = b.split('.').pop() ?? '';
+          return (aExt === bExt)
+            ? a.localeCompare(b)
+            : aExt.localeCompare(bExt);
+        });
+      }
+    },
   ]
 });
