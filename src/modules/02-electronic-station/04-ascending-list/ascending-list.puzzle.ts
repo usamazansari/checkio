@@ -39,7 +39,23 @@ export const Puzzle = new Solution({
   categories: [
     {
       name: 'My',
-      fn: isAscending,
+      fn: isAscending
     },
-  ],
+    {
+      name: 'Clear',
+      fn(values: number[]): boolean {
+        return values.every((item, i) => i == 0 || values[i - 1] < item);
+      }
+    },
+    {
+      name: 'Creative',
+      fn: (L: number[]): boolean => !L.some((v, i) => i && L[i - 1] >= v)
+    },
+    {
+      name: 'Uncategorized',
+      fn(values: number[]): boolean {
+        return values.join() === [...(new Set(values))].sort((a, b) => a - b).join();
+      }
+    }
+  ]
 });
