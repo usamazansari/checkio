@@ -8,8 +8,8 @@
         "run-script",
         "test",
         "--",
-        "--testPathPattern=${fileBasenameNoExtension}",
-        "--config=${workspaceFolder}/jest.config.js"
+        "--config=${workspaceFolder}/jest.config.js",
+        "--testPathPattern=${fileBasenameNoExtension}"
       ],
       "console": "integratedTerminal",
       "runtimeExecutable": "npm",
